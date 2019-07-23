@@ -12,8 +12,7 @@
             <!--图表一-->
             <el-col :span="8" class="bl" style="width: 32vw">
                 <div class="charts-title blue">年度违规交易一览</div>
-                <div class="charts-1" id="eCharts-1">
-                </div>
+                <illegal-transition></illegal-transition>
             </el-col>
 
 
@@ -38,8 +37,7 @@
             <!--图表一-->
             <el-col :span="8" class="bl" style="width: 32vw">
                 <div class="charts-title blue">区域7月违规商户数量</div>
-                <div class="charts-1" id="eCharts-4">
-                </div>
+                <illegal-shop></illegal-shop>
             </el-col>
 
 
@@ -65,7 +63,10 @@
     import CZ from '../assets/Cz'
     import bar4Position from "@/eCharts/bar4Position";
     import HospitalTop10 from "@/eCharts/HospitalTop10";
+    import IllegalTransition from "../eCharts/IllegalTransition";
+    import IllegalShop from "../eCharts/IllegalShop";
 
+    //将数据显示至地图（转换
     var convertData = function (data) {
         var res = [];
         for (var i = 0; i < data.length; i++) {
@@ -106,95 +107,13 @@
         },
         beforeDestroy() {
             window.removeEventListener('resize', this.handleResize)
-            this.pieCharts.dispose()
+            this.pieCharts2.dispose()
         },
         name: 'home',
-        components: {bar4Position, HospitalTop10},
+        components: {bar4Position, HospitalTop10, IllegalTransition,IllegalShop},
         data() {
             return {
-                pieCharts: null,
-                //图表1
-                chartsOption1: {
-                    title: {
-                        // text: '年度违规交易一览',
-                        x: 'center',
-                        align: 'right',
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    },
-                    grid: {
-                        top: 80
-                    },
-                    legend: {
-                        align: 'right',
-                        right: 10,
-                        top: 30,
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    },
-                    tooltip: {},
-                    dataset: {
-                        dimensions: ['product', '违规商户', '违规事件'],
-                        source: [
-                            {product: '1月', '违规商户': 13.3, '违规事件': 55.8},
-                            {product: '2月', '违规商户': 23.3, '违规事件': 85.8},
-                            {product: '3月', '违规商户': 63.3, '违规事件': 35.8},
-                            {product: '4月', '违规商户': 23.3, '违规事件': 15.8},
-                            {product: '5月', '违规商户': 73.3, '违规事件': 75.8},
-                            {product: '6月', '违规商户': 83.3, '违规事件': 95.8},
-                        ]
-                    },
-                    xAxis: {
-                        type: 'category',
-                        barCategoryGap: '40%',
-                        axisLabel: {
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        axisLabel: {
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            type: 'bar',
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            },
-                            barCategoryGap: '40%',
-                            itemStyle: {
-                                normal: {
-                                    color: new this.$echarts.graphic.LinearGradient(
-                                        0, 0, 0, 1,
-                                        [
-                                            {offset: 0, color: '#83bff6'},
-                                            {offset: 0.5, color: '#188df0'},
-                                            {offset: 1, color: '#188df0'}
-                                        ]
-                                    )
-                                },
-                            }
-                        },
-                        {
-                            type: 'bar',
-                            itemStyle: {
-                                color: '#3d42e4',
-                                shadowBlur: 200,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            },
-                        }
-                    ]
-                },
+                pieCharts2:null,
                 //图表2
                 chartsOption2: {
                     title: {
@@ -275,85 +194,11 @@
                         }
                     ]
                 },
-                //图表4
-                chartsOption4: {
-                    title: {
-                        x: 'center',
-                        align: 'right',
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    },
-                    grid: {
-                        top: 80
-                    },
-                    legend: {
-                        // right: 10,
-                        top: 30,
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    },
-                    tooltip: {},
-                    dataset: {
-                        dimensions: ['product', '医院', '药店'],
-                        source: [
-                            {product: '枫溪区', '医院': 43.3, '药店': 55.8},
-                            {product: '潮安区', '医院': 63.3, '药店': 35.8},
-                            {product: '饶平县', '医院': 13.3, '药店': 65.8},
-                            {product: '湘桥区', '医院': 43.3, '药店': 15.8},
-                        ]
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLabel: {
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        min: 0,
-                        max: 100,
-                        axisLabel: {
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            type: 'bar',
-                            barCategoryGap: '40%',
-                            itemStyle: {
-                                normal: {
-                                    color: new this.$echarts.graphic.LinearGradient(
-                                        0, 0, 0, 1,
-                                        [
-                                            {offset: 0, color: '#83bff6'},
-                                            {offset: 0.5, color: '#188df0'},
-                                            {offset: 1, color: '#188df0'}
-                                        ]
-                                    )
-                                },
-                            }
-                        },
-                        {
-                            type: 'bar',
-                            barCategoryGap: '40%',
-                            itemStyle: {
-                                color: '#dfb83f',
-                                shadowBlur: 200,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            },
-                        }
-                    ]
-                },
             }
         },
         methods: {
             handleResize() {
-                this.pieCharts.resize()
+                this.pieCharts2.resize()
             },
             toHos() {
                 this.$router.push('Hospital')
@@ -361,13 +206,9 @@
         },
         mounted() {
             this.$nextTick(() => {
-                this.pieCharts = this.$echarts.init(document.getElementById('eCharts-1'))
                 this.pieCharts2 = this.$echarts.init(document.getElementById('eCharts-2'))
-                this.pieCharts4 = this.$echarts.init(document.getElementById('eCharts-4'))
-                this.pieCharts.setOption(this.chartsOption1)
                 this.$echarts.registerMap('CZ', CZ)
                 this.pieCharts2.setOption(this.chartsOption2)
-                this.pieCharts4.setOption(this.chartsOption4)
                 window.addEventListener('resize', this.handleResize)
             })
         }
