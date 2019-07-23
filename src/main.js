@@ -23,6 +23,7 @@ Vue.use(Col);
 Vue.use(Tabs);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(echarts);
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$ajax = axios
 
