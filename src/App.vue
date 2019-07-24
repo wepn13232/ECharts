@@ -12,4 +12,9 @@
 </script>
 
 <style>
+    body{
+        background-image: url("./assets/img_bg.png");
+        background-size: 100%;
+        background-position: center center;
+    }
 </style>

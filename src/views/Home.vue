@@ -8,9 +8,9 @@
 
 
         <!--          图表-->
-        <el-row class="mt119" type="flex" justify="space-between">
+        <el-row class="mt3 pb1" type="flex" justify="space-around">
             <!--            第一列-->
-            <el-col :span="7" class="blue h942" style="width: 30vw">
+            <el-col :span="6" class="blue h942">
                 <!--                1-1-->
                 <div class=" w522 h33 Bg1">
                 </div>
@@ -21,18 +21,10 @@
                 <div class=" w522 h33 Bg1">
                 </div>
             </el-col>
-            <!--            第2列-->
-            <el-col :span="10" class="blue h942" style="width: 39vw">
-                <div class="Bg2"></div>
+            <el-col :span="10" class="gold h942">
+
             </el-col>
-            <!--            第3列-->
-            <el-col :span="7" class="blue h942" style="width: 30vw">
-                <!--                3-1-->
-                <div class=" w522 h33 Bg1">
-                </div>
-                <!--                3-2-->
-                <div class=" w522  Bg3" style="height: 66.66667%">
-                </div>
+            <el-col :span="6" class="blue h942">
 
             </el-col>
 
@@ -207,20 +199,20 @@
 
     .title {
         color: white;
-        font-size: 2vw;
+        font-size: 1vw;
     }
 
 
 </style>
 
 <style>
-    .home {
-        background-image: url("../assets/img_bg.png");
-        width: 100%;
-        height: 100%;
-        background-position: center center;
-        background-size: contain;
-    }
+    /*.home {*/
+    /*    background-image: url("../assets/img_bg.png");*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*    background-position: center center;*/
+    /*    background-size: contain;*/
+    /*}*/
 
     .charts-1 {
         height: 400px;
@@ -265,7 +257,7 @@
     }
 
     .h942 {
-        height: 942px;
+        height: 44vw;
     }
 
     .w802 {
@@ -289,8 +281,12 @@
         background-repeat: no-repeat;
     }
 
-    .mt37 {
-        margin-top: 37px;
+    .mt3 {
+        margin-top: 3vw;
+    }
+
+    .pb1 {
+        padding-bottom: 1vw;
     }
 
     .Bg2 {
@@ -301,6 +297,7 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
+
     .Bg3 {
         background-image: url("../assets/frame_big2.png");
         width: 100%;
