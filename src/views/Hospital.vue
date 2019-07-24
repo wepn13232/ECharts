@@ -5,7 +5,7 @@
             <span>——————  潮州社保数据可视化系统  ——————</span>
         </div>
         <a @click="toHome"
-           style="float: right;color: white;font-size: 0.5vw;text-decoration: none;cursor: pointer">切换子主题</a>
+           style="float: right;color: white;font-size: 1vw;text-decoration: none;cursor: pointer">切换子主题</a>
 
 
         <!--          图表-->
@@ -27,7 +27,7 @@
             <!--图表三-->
             <el-col :span="8" class="bl" style="width: 32vw">
                 <div class="charts-title blue">定点机构社保年度交易金额</div>
-                <two-line-chart></two-line-chart>
+                <two-line-chart :blueLineData="blueLineData" :yellowLineData="yellowLineData"></two-line-chart>
             </el-col>
         </el-row>
         <br>
@@ -52,8 +52,7 @@
             <!--图表三-->
             <el-col :span="8" class="bl" style="width: 32vw">
                 <div class="charts-title blue">区域社保年度交易金额</div>
-                <div class="charts-1" id="eCharts-6">
-                </div>
+                <four-line-charts :fxq="fxqSum" :caq="caqSum" :xqq="xqqSum"></four-line-charts>
             </el-col>
         </el-row>
 
@@ -66,6 +65,7 @@
     import HospitalTop10 from "@/eCharts/HospitalTop10";
     import TwoLineChart from "@/eCharts/TwoLineChart";
     import ConsumptionStatistics from "@/eCharts/ConsumptionStatistics";
+    import FourLineCharts from "@/eCharts/FourLineCharts";
 
     export default {
         beforeRouteEnter(to, from, next) {
@@ -81,14 +81,19 @@
             this.pieCharts.dispose()
         },
         name: "Hospital",
-        components: {bar4Position, HospitalTop10, TwoLineChart,ConsumptionStatistics},
-        mounted() {
-            this.$nextTick(() => {
-            })
-        },
+        components: {bar4Position, HospitalTop10, TwoLineChart, ConsumptionStatistics, FourLineCharts},
         methods: {
             toHome() {
                 this.$router.push('/')
+            }
+        },
+        data() {
+            return {
+                blueLineData: [11, 11, 15, 13, 12, 13, 10, 6, 8, 12, 17],
+                yellowLineData: [1, 2, 2, 5, 3, 2, 7, 1, 4, 5, 6],
+                fxqSum: [11, 11, 15, 13, 12, 13, 10, 6, 8, 12, 17],
+                xqqSum: [1, 2, 3, 4, 5, 6, 2, 21, 4, 5, 6, 1],
+                caqSum: [1, 2, 2, 5, 7, 7, 7, 1, 4, 5, 6],
             }
         }
     }

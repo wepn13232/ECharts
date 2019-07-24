@@ -4,7 +4,7 @@
             <span>——————  潮州社保数据可视化系统  ——————</span>
         </div>
         <a @click="toHos"
-           style="float: right;color: white;font-size: 0.5vw;text-decoration: none;cursor: pointer">切换子主题</a>
+           style="float: right;color: white;font-size: 1vw;text-decoration: none;cursor: pointer">切换子主题</a>
 
 
         <!--          图表-->

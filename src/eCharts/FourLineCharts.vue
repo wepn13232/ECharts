@@ -1,7 +1,7 @@
 <template>
     <!--    子主题--折线图-->
     <div>
-        <div class="charts-1" id="twoLineCharts"></div>
+        <div class="charts-1" id="fourLineCharts"></div>
     </div>
 </template>
 
@@ -11,23 +11,25 @@
             window.removeEventListener('resize', this.handleResize)
             this.pieCharts.dispose()
         },
-        name: "TwoLineChart",
+        name: "FourLineCharts",
         data() {
             return {
                 pieCharts: null,
-                blue_LineData: '',
-                yellow_LineData:''
+                fxqSum: '',
+                caqSum:'',
+                xqqSum:''
             }
         },
-        props: ['blueLineData','yellowLineData'],
+        props: ['fxq','caq','xqq'],
         //图表自适应刷新
         methods: {
             handleResize() {
                 this.pieCharts.resize()
             },
             setData() {
-                this.blue_LineData = this.blueLineData
-                this.yellow_LineData = this.yellowLineData
+                this.fxqSum = this.fxq
+                this.caqSum = this.caq
+                this.xqqSum = this.xqq
             }
         },
         mounted() {
@@ -37,8 +39,9 @@
                 tooltip: {
                     trigger: 'axis'
                 },
+                color:['#2780f4','#dfb83f','#75df84'],
                 legend: {
-                    data: ['医院', '商户'],
+                    data: ['枫溪区', '潮安区','湘桥区','饶平县'],
                     x: 'right',
                     top: 30,
                     textStyle: {
@@ -82,61 +85,51 @@
                 },
                 series: [
                     {
-                        name: '医院',
+                        name: '枫溪区',
                         type: 'line',
-                        symbol: 'circle',
-                        symbolSize: 10,
+                        symbolSize: 7,
                         //折线颜色
                         lineStyle: {
                             normal: {
-                                color: 'white',
+                                color: '#2780f4',
                                 width: 3
                             }
                         },
-                        //折点颜色
-                        itemStyle: {
-                            normal: {
-                                color: '#2780f4',
-                            }
+                        itemStyle:{
+                          borderType:'dotted'
                         },
-                        data: this.blue_LineData,
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        },
+                        data: this.fxqSum,
                     },
                     {
-                        name: '商户',
+                        name: '潮安区',
                         type: 'line',
-                        data: this.yellowLineData,
-                        symbol: 'circle',
-                        symbolSize: 10,
-                        //折现颜色
+                        data: this.caqSum,
+                        symbolSize: 7,
+                        //折线颜色
                         lineStyle: {
                             normal: {
-                                color: '#fff',
+                                color: '#dfb83f',
                                 width: 3,
                             }
                         },
-                        //折点颜色
-                        itemStyle: {
+                    },
+                    {
+                        name: '湘桥区',
+                        type: 'line',
+                        data: this.xqqSum,
+                        symbolSize: 7,
+                        //折线颜色
+                        lineStyle: {
                             normal: {
-                                color: '#dfb83f'
+                                color: '#75df84',
+                                width: 3,
                             }
                         },
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        },
-                    }
+                     }
                 ]
             }
             this.$nextTick(() => {
-                this.pieCharts = this.$echarts.init(document.getElementById('twoLineCharts'))
+                this.pieCharts = this.$echarts.init(document.getElementById('fourLineCharts'))
                 this.pieCharts.setOption(LineCharts)
                 window.addEventListener('resize', this.handleResize)
             })
