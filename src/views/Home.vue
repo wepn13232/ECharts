@@ -8,63 +8,45 @@
 
 
         <!--          图表-->
-        <el-row class="mt6" type="flex" justify="space-between">
-            <!--图表一-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">年度违规交易一览</div>
-                <illegal-transition></illegal-transition>
-            </el-col>
-
-
-            <!--图表二-->
-            <el-col :span="8" style="width: 32vw">
-                <div class="charts-1" id="eCharts-2">
+        <el-row class="mt119" type="flex" justify="space-between">
+            <!--            第一列-->
+            <el-col :span="7" class="blue h942" style="width: 30vw">
+                <!--                1-1-->
+                <div class=" w522 h33 Bg1">
+                </div>
+                <!--                1-1-->
+                <div class=" w522 h33 Bg1">
+                </div>
+                <!--                1-1-->
+                <div class=" w522 h33 Bg1">
                 </div>
             </el-col>
-
-
-            <!--图表三-->
-            <el-col :span="8" class="bl3" style="width: 32vw">
-                <div class="charts-title gold">区域定点7月商户数量</div>
-                <bar4-position></bar4-position>
+            <!--            第2列-->
+            <el-col :span="10" class="blue h942" style="width: 39vw">
+                <div class="Bg2"></div>
             </el-col>
-        </el-row>
-
-        <br>
-
-
-        <el-row type="flex" justify="space-between">
-            <!--图表一-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">区域7月违规商户数量</div>
-                <illegal-shop></illegal-shop>
-            </el-col>
-
-
-            <!--图表二-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">今日营业额排行榜TOP10</div>
-                <hospital-top10 style="padding-top: 2vw"></hospital-top10>
-            </el-col>
-
-
-            <!--                    图表三-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">全区域实时消费动态</div>
-                <div class="charts-1" id="eCharts-6">
+            <!--            第3列-->
+            <el-col :span="7" class="blue h942" style="width: 30vw">
+                <!--                3-1-->
+                <div class=" w522 h33 Bg1">
                 </div>
+                <!--                3-2-->
+                <div class=" w522  Bg3" style="height: 66.66667%">
+                </div>
+
             </el-col>
 
         </el-row>
+
     </div>
 </template>
 
 <script>
     import CZ from '../assets/Cz'
-    import bar4Position from "@/eCharts/bar4Position";
-    import HospitalTop10 from "@/eCharts/HospitalTop10";
-    import IllegalTransition from "../eCharts/IllegalTransition";
-    import IllegalShop from "../eCharts/IllegalShop";
+    import bar4Position from "@/components/eCharts/bar4Position";
+    import HospitalTop10 from "@/components/eCharts/HospitalTop10";
+    import IllegalTransition from "../components/eCharts/IllegalTransition";
+    import IllegalShop from "../components/eCharts/IllegalShop";
 
     //将数据显示至地图（转换
     var convertData = function (data) {
@@ -96,24 +78,15 @@
     }
 
     export default {
-
-        beforeRouteEnter(to, from, next) {
-            document.querySelector('body').setAttribute('style', 'background-color:#004060')
-            next()
-        },
-        beforeRouteLeave(to, from, next) {
-            document.querySelector('body').setAttribute('style', 'background-color:#fff')
-            next()
-        },
         beforeDestroy() {
             window.removeEventListener('resize', this.handleResize)
             this.pieCharts2.dispose()
         },
         name: 'home',
-        components: {bar4Position, HospitalTop10, IllegalTransition,IllegalShop},
+        components: {bar4Position, HospitalTop10, IllegalTransition, IllegalShop},
         data() {
             return {
-                pieCharts2:null,
+                pieCharts2: null,
                 //图表2
                 chartsOption2: {
                     title: {
@@ -241,6 +214,14 @@
 </style>
 
 <style>
+    .home {
+        background-image: url("../assets/img_bg.png");
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: contain;
+    }
+
     .charts-1 {
         height: 400px;
     }
@@ -279,8 +260,57 @@
         background-color: #2780f4;
     }
 
-    .mt6 {
-        margin-top: 6vw;
+    .mt119 {
+        margin-top: 119px;
+    }
+
+    .h942 {
+        height: 942px;
+    }
+
+    .w802 {
+        width: 802px;
+    }
+
+    .w522 {
+        width: 522px;
+    }
+
+    .h302 {
+        height: 302px;
+    }
+
+    .Bg1 {
+        background-image: url("../assets/divImg1.png");
+        /*height: 302px;*/
+        width: 100%;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .mt37 {
+        margin-top: 37px;
+    }
+
+    .Bg2 {
+        background-image: url("../assets/frame_big1.png");
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .Bg3 {
+        background-image: url("../assets/frame_big2.png");
+        width: 100%;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .h33 {
+        height: 33.3333%;
     }
 
 </style>

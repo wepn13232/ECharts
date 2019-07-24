@@ -61,11 +61,11 @@
 
 <script>
 
-    import bar4Position from "@/eCharts/bar4Position";
-    import HospitalTop10 from "@/eCharts/HospitalTop10";
-    import TwoLineChart from "@/eCharts/TwoLineChart";
-    import ConsumptionStatistics from "@/eCharts/ConsumptionStatistics";
-    import FourLineCharts from "@/eCharts/FourLineCharts";
+    import bar4Position from "@/components/eCharts/bar4Position";
+    import HospitalTop10 from "@/components/eCharts/HospitalTop10";
+    import TwoLineChart from "@/components/eCharts/TwoLineChart";
+    import ConsumptionStatistics from "@/components/eCharts/ConsumptionStatistics";
+    import FourLineCharts from "@/components/eCharts/FourLineCharts";
 
     export default {
         beforeRouteEnter(to, from, next) {
