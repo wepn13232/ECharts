@@ -1,8 +1,9 @@
 <template>
-<!--    今日医院营业Top10-->
+    <!--    今日医院营业Top10-->
     <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
         <el-table :header-cell-style="{background:'#004060'}"
                   :data="tableData.slice(0,10)"
+                  :default-sort="{prop:'sum',order:'descending'}"
                   style="width: 100%;background-color: rgba(223,184,63,0)">
             <el-table-column
                     prop="date"
@@ -15,8 +16,9 @@
                     width="150">
             </el-table-column>
             <el-table-column
-                    prop="address"
-                    label="地址">
+                    prop="sum"
+                    sortable
+                    label="金额">
             </el-table-column>
         </el-table>
     </div>
@@ -40,52 +42,52 @@
                     {
                         date: '2016-05-01',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 3681
+                    },
+                    {
+                        date: '2016-05-02',
+                        name: '潮州总社区医院',
+                        sum: 3694
+                    },
+                    {
+                        date: '2016-05-03',
+                        name: '潮州总社区医院',
+                        sum: 3689
                     },
                     {
                         date: '2016-05-01',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 3893
                     },
                     {
-                        date: '2016-05-01',
+                        date: '2016-05-07',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 6893
                     },
                     {
-                        date: '2016-05-01',
+                        date: '2016-05-11',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 36893
                     },
                     {
-                        date: '2016-05-01',
+                        date: '2016-05-21',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 3689
                     },
                     {
-                        date: '2016-05-01',
+                        date: '2016-05-09',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 36793
                     },
                     {
-                        date: '2016-05-01',
+                        date: '2016-05-06',
                         name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 3893
                     },
                     {
-                        date: '2016-05-01',
+                        date: '2016-05-31',
                         name: '潮州总社区医院',
-                        address: '36893.5'
-                    },
-                    {
-                        date: '2016-05-01',
-                        name: '潮州总社区医院',
-                        address: '36893.5'
-                    },
-                    {
-                        date: '2016-05-01',
-                        name: '潮州总社区医院',
-                        address: '36893.5'
+                        sum: 36193
                     }
                 ],
             }
@@ -111,7 +113,7 @@
         color: white;
     }
 
-    .el-table--enable-row-hover .el-table__body tr:hover>td{
+    .el-table--enable-row-hover .el-table__body tr:hover > td {
         background-color: #2780f4 !important;
     }
 
