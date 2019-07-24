@@ -10,20 +10,22 @@
         <!--          图表-->
         <el-row class="mt3 pb1" type="flex" justify="space-around">
             <!--            第一列-->
-            <el-col :span="6" class="blue h942">
+            <el-col :span="6" class=" h942">
                 <!--                1-1-->
                 <div class=" w522 h33 Bg1">
                 </div>
                 <!--                1-1-->
-                <div class=" w522 h33 Bg1">
+                <div class=" w522 h33 mt1 Bg1">
                 </div>
                 <!--                1-1-->
-                <div class=" w522 h33 Bg1">
+                <div class=" w522 h33 mt1 Bg1">
                 </div>
             </el-col>
+            <!--            第二列-->
             <el-col :span="10" class="gold h942">
 
             </el-col>
+            <!--            第三列-->
             <el-col :span="6" class="blue h942">
 
             </el-col>
@@ -199,21 +201,13 @@
 
     .title {
         color: white;
-        font-size: 1vw;
+        font-size: 1.1vw;
     }
 
 
 </style>
 
 <style>
-    /*.home {*/
-    /*    background-image: url("../assets/img_bg.png");*/
-    /*    width: 100%;*/
-    /*    height: 100%;*/
-    /*    background-position: center center;*/
-    /*    background-size: contain;*/
-    /*}*/
-
     .charts-1 {
         height: 400px;
     }
@@ -257,7 +251,7 @@
     }
 
     .h942 {
-        height: 44vw;
+        height: 45vw;
     }
 
     .w802 {
@@ -279,6 +273,10 @@
         background-position: center center;
         background-size: contain;
         background-repeat: no-repeat;
+    }
+
+    .mt1 {
+    margin-top: 1%;
     }
 
     .mt3 {
@@ -307,7 +305,7 @@
     }
 
     .h33 {
-        height: 33.3333%;
+        height: 33%;
     }
 
 </style>
