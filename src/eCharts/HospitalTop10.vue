@@ -1,4 +1,5 @@
 <template>
+<!--    今日医院营业Top10-->
     <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
         <el-table :header-cell-style="{background:'#004060'}"
                   :data="tableData.slice(0,10)"

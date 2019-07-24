@@ -1,4 +1,5 @@
 <template>
+    <!--    违规商户数量-->
     <div>
         <div class="charts-1" id="eCharts-4"></div>
     </div>
@@ -11,23 +12,23 @@
             this.pieCharts.dispose()
         },
         name: "IllegalShop",
-        data(){
-            return{
-                pieCharts:null
+        data() {
+            return {
+                pieCharts: null
             }
         },
-        methods:{
+        methods: {
             handleResize() {
                 this.pieCharts.resize()
             },
         },
         mounted() {
             //违规商户
-           const chartsOption4={
+            const chartsOption4 = {
                 title: {
                     x: 'center',
-                        align: 'right',
-                        textStyle: {
+                    align: 'right',
+                    textStyle: {
                         color: '#fff'
                     }
                 },
@@ -37,14 +38,14 @@
                 legend: {
                     // right: 10,
                     top: 30,
-                        textStyle: {
+                    textStyle: {
                         color: '#fff'
                     }
                 },
                 tooltip: {},
                 dataset: {
                     dimensions: ['product', '医院', '药店'],
-                        source: [
+                    source: [
                         {product: '枫溪区', '医院': 43.3, '药店': 55.8},
                         {product: '潮安区', '医院': 63.3, '药店': 35.8},
                         {product: '饶平县', '医院': 13.3, '药店': 65.8},
@@ -53,18 +54,28 @@
                 },
                 xAxis: {
                     type: 'category',
-                        axisLabel: {
+                    axisLabel: {
                         textStyle: {
                             color: '#fff'
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white'
                         }
                     }
                 },
                 yAxis: {
                     min: 0,
-                        max: 100,
-                        axisLabel: {
+                    max: 100,
+                    axisLabel: {
                         textStyle: {
                             color: '#fff'
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white'
                         }
                     }
                 },
@@ -96,7 +107,7 @@
                     }
                 ]
             }
-            this.$nextTick(()=>{
+            this.$nextTick(() => {
                 this.pieCharts = this.$echarts.init(document.getElementById('eCharts-4'))
                 this.pieCharts.setOption(chartsOption4)
                 window.addEventListener('resize', this.handleResize)
