@@ -4,7 +4,7 @@
         <div class="headerTitle" style="width: 100%;height: 91px;">
             <div class="navbar_left" style="float: left;height: 91px;">
                 <span class="tc_title"
-                      style="line-height: 5vw;font-size: 1.5vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
+                      style="line-height: 5vw;font-size: 1.4vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
                 <span style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
             </div>
             <div class="navbar_title" style="height: 91px;float: left"></div>
