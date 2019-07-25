@@ -88,6 +88,7 @@
         }
         return res;
     };
+    //转换正常商户
     var convertNormalData = function (data) {
         var res = [];
         for (var i = 0; i < data.length; i++) {
@@ -116,7 +117,7 @@
         '商户3': [116.49365, 23.674675],
         '商户4': [116.60872, 23.65159],
     }
-    var normalShop={
+    var normalShop = {
         '商户1': [116.64931, 23.761012],
         '商户2': [117.11205, 23.648171],
         '商户3': [116.48365, 23.684675],
@@ -129,7 +130,7 @@
             this.pieCharts2.dispose()
         },
         name: 'home',
-        components: {IllegalOperation,MerchantNum,IllegalMerchant,ConsumptionDynamics,HospitalTop10},
+        components: {IllegalOperation, MerchantNum, IllegalMerchant, ConsumptionDynamics, HospitalTop10},
         data() {
             return {
                 nowTime: '',
@@ -151,7 +152,7 @@
                     toolbox: {},
                     legend: {
                         align: 'left',
-                        orient:'vertical',
+                        orient: 'vertical',
                         left: 10,
                         top: 30,
                         textStyle: {
@@ -174,7 +175,7 @@
                             normal: {
                                 areaColor: '#00244F',
                                 borderColor: '#00B3FF',
-                                borderWidth:2,
+                                borderWidth: 2,
                                 // shadowColor:'#00F3F4',
                                 // shadowBlur:10,
                                 label: {show: true}
@@ -211,7 +212,7 @@
                         {
                             name: '正常',
                             type: 'scatter',
-                            data:convertNormalData(shop),
+                            data: convertNormalData(shop),
                             itemStyle: {
                                 normal: {
                                     color: '#00FFB3'
@@ -244,8 +245,23 @@
                 let date = new Date(timeStamp).getDate() < 10 ? "0" + new Date(timeStamp).getDate() : new Date(timeStamp).getDate();
                 let hh = new Date(timeStamp).getHours() < 10 ? "0" + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
                 let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
-                let dd = new Date(timeStamp).getDay()
-                this.nowDay = "星期" + dd
+                let dd = new Date(timeStamp).getDay() < 10 ? "0" + new Date(timeStamp).getDay() : new Date(timeStamp).getDay();
+                if (dd == 1) {
+                    this.nowDay = "星期一"
+                } else if (dd == 2) {
+                    this.nowDay = "星期二"
+                } else if (dd == 3) {
+                    this.nowDay = "星期三"
+                } else if (dd == 4) {
+                    this.nowDay = "星期四"
+                } else if (dd == 5) {
+                    this.nowDay = "星期五"
+                } else if (dd == 6) {
+                    this.nowDay = "星期六"
+                } else {
+                    this.nowDay = "星期日"
+                }
+                // this.nowDay = "星期" + dd
                 this.nowDate = year + "年" + month + "月" + date + "日"
                 this.nowTime = +" " + hh + ":" + mm;
             },
