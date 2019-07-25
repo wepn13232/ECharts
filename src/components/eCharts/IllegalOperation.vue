@@ -34,13 +34,14 @@
                     data: ['违规事件', '违规商户'],
                     textStyle: {
                         color: '#E6F7FF',
-                        fontSize:8
+                        fontSize:9
                     },
                     x: 'right',
                 },
                 grid: {
                     containLabel: true,
-                    top:'35',
+                    top:25,
+                    bottom:30,
                 },
                 xAxis: [
                     {
@@ -49,12 +50,13 @@
                         data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
                         axisLine: {
                             lineStyle: {
-                                color: '#E6F7FF'
+                                color: '#00D4FF'
                             }
                         },
                         axisLabel:{
                             textStyle:{
-                                fontSize:10
+                                fontSize:12,
+                                color:'#E6F7FF'
                             }
                         },
                     }
@@ -67,13 +69,14 @@
                         },
                         axisLabel:{
                             textStyle:{
-                                fontSize:10
+                                fontSize:12,
+                                color:'#E6F7FF'
                             }
                         },
                         type: 'value',
                         axisLine: {
                             lineStyle: {
-                                color: '#E6F7FF'
+                                color: '#00D4FF'
                             }
                         },
                     }

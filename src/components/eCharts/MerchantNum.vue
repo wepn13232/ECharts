@@ -105,9 +105,9 @@
                             color: '#00F3F4',
                             width: '1'
                         },
-                        y: '63%',
-                        x: 90,
-                        right: 40,
+                        y: '85%',
+                        x: 80,
+                        right: 60,
                         axisType: 'category',
                         autoPlay: true,
                         playInterval: 2000,
@@ -127,16 +127,16 @@
                         data: ['医院', '商户'],
                         textStyle: {
                             color: '#E6F7FF',
-                            fontSize:8
+                            fontSize: 10
                         },
-                        itemWidth:20,
-                        itemHeight:12,
+                        itemWidth: 20,
+                        itemHeight: 12,
                     },
                     calculable: true,
                     grid: {
                         containLabel: true,
-                        bottom: 80,
-                        top: 30,
+                        bottom: 50,
+                        top: 20,
                         left: 20,
                         tooltip: {
                             trigger: 'axis',
@@ -160,12 +160,13 @@
                             splitLine: {show: false},
                             axisLine: {
                                 lineStyle: {
-                                    color: '#E6F7FF'
+                                    color: '#00D4FF'
                                 }
                             },
                             axisLabel: {
                                 textStyle: {
-                                    fontSize: 10
+                                    fontSize: 12,
+                                    color: '#E6F7FF'
                                 }
                             },
                         }
@@ -176,12 +177,13 @@
                             splitLine: {show: false},
                             axisLine: {
                                 lineStyle: {
-                                    color: '#E6F7FF'
+                                    color: '#00D4FF'
                                 }
                             },
                             axisLabel: {
                                 textStyle: {
-                                    fontSize: 10
+                                    fontSize: 12,
+                                    color: '#E6F7FF'
                                 }
                             },
                         }

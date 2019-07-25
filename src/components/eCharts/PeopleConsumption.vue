@@ -1,7 +1,7 @@
 <template>
-    <!--    违规商户一览-->
+    <!--    消费人群统计-->
     <div>
-        <div class="charts-1" id="illegalMerchant"></div>
+        <div class="charts-2" id="peopleConsumption"></div>
     </div>
 </template>
 
@@ -11,7 +11,7 @@
             window.removeEventListener('resize', this.handleResize)
             this.pieCharts.dispose()
         },
-        name: "IllegalMerchant",
+        name: "PeopleConsumption",
         data() {
             return {
                 pieCharts: null,
@@ -24,6 +24,7 @@
             },
         },
         mounted() {
+            //封装图表
             const cSCharts = {
                 tooltip: {
                     trigger: 'axis',
@@ -32,64 +33,67 @@
                     }
                 },
                 legend: {
-                    data: ['医院', '药店'],
+                    data: ['男', '女'],
                     textStyle: {
                         color: 'white',
-                        fontSize: 11
+                        fontSize:11
                     },
-                    itemWidth: 20,
-                    itemHeight: 12
+                    itemWidth:20,
+                    itemHeight:12,
+                    top:10,
                 },
                 grid: {
                     left: '3%',
-                    bottom: '10%',
-                    top: 30,
-                    containLabel: true
+                    bottom: '0%',
+                    top: 60,
+                    containLabel: true,
+                    height:280
                 },
                 xAxis: {
                     type: 'value',
-                    splitLine: {
-                        show: false
+                    splitLine:{
+                        show:false
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#00D4FF'
+                            color: '#00D4FF',
                         }
                     },
-                    axisLabel: {
-                        textStyle: {
-                            fontSize: 12,
-                            color: '#E6F7FF'
+                    axisLabel:{
+                        textStyle:{
+                            fontSize:12,
+                            color:'#E6F7FF'
                         }
                     }
                 },
                 yAxis: {
+                    name:'岁',
                     type: 'category',
-                    data: ['饶平县', '枫溪区', '湘桥区', '潮安区'],
+                    data: ['0-14', '15-35', '36-60', '60以上'],
                     axisLine: {
                         lineStyle: {
                             color: '#00D4FF'
                         }
                     },
-                    splitLine: {
-                        show: false
+                    splitLine:{
+                        show:false
                     },
-                    axisLabel: {
-                        textStyle: {
-                            fontSize: 12,
-                            color: '#E6F7FF'
+                    axisLabel:{
+                        textStyle:{
+                            fontSize:12,
+                            color:'#E6F7FF'
                         }
                     },
                 },
                 series: [
                     {
-                        name: '医院',
+                        name: '男',
                         type: 'bar',
                         barCategoryGap: '60%',
                         stack: '总量',
                         itemStyle: {
                             normal: {
-                                color: '#00B3FF'
+                                color: '#0044FF'
                             }
                         },
                         label: {
@@ -98,16 +102,16 @@
                                 position: 'insideRight'
                             }
                         },
-                        data: [320, 302, 301, 334]
+                        data: [120, 102, 101, 34]
                     },
                     {
-                        name: '药店',
+                        name: '女',
                         barCategoryGap: '60%',
                         type: 'bar',
                         stack: '总量',
                         itemStyle: {
                             normal: {
-                                color: '#00FFB3'
+                                color: '#E632A2'
                             }
                         },
                         label: {
@@ -116,12 +120,12 @@
                                 position: 'insideRight'
                             }
                         },
-                        data: [120, 132, 101, 134]
+                        data: [120, 52, 101, 14]
                     },
                 ]
             }
             this.$nextTick(() => {
-                this.pieCharts = this.$echarts.init(document.getElementById('illegalMerchant'))
+                this.pieCharts = this.$echarts.init(document.getElementById('peopleConsumption'))
                 this.pieCharts.setOption(cSCharts)
                 window.addEventListener('resize', this.handleResize)
             })
@@ -130,5 +134,8 @@
 </script>
 
 <style scoped>
+    .charts-2 {
+        height: 19vw;
+    }
 
 </style>

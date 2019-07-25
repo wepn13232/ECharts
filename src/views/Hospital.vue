@@ -1,121 +1,174 @@
 <template>
-    <div class="home">
+    <div>
+        <!--        标题-->
+        <div class="headerTitle" style="width: 100%;height: 91px;">
+            <div class="navbar_left" style="float: left;height: 91px;">
+                <span class="tc_title"
+                      style="line-height: 5vw;font-size: 1.4vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
+                <span style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
+            </div>
+            <div class="navbar_title" style="height: 91px;float: left"></div>
+            <div class="navbar_right" style="height: 91px;float: right">
+                <div class="switchPage" style="margin-top: 3%;cursor: pointer" @click="toHome">
+                    <span class="tc_s" id="font1" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
+                    <div class="BgChange" id="fontPic" style="width: 40px;height: 40px;float: right"></div>
+                </div>
+            </div>
 
-        <div class="title w100 tc" style="font-weight: bolder;">
-            <span>——————  潮州社保数据可视化系统  ——————</span>
         </div>
-        <a @click="toHome"
-           style="float: right;color: white;font-size: 1vw;text-decoration: none;cursor: pointer">切换子主题</a>
+        <br>
 
-
-        <!--          图表-->
-        <el-row class="mt6" type="flex" justify="space-between">
-            <!--图表一-->
-            <el-col :span="8" class="bl" style="width: 32vw;">
-                <div class="charts-title blue">今日医院营业额TOP10</div>
-                <hospital-top10 style="padding-top: 2vw"></hospital-top10>
+<!--        图表-->
+        <el-row type="flex" justify="space-around">
+            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                 <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日医院营业额Top10</span>
+                <hospital-top10></hospital-top10>
             </el-col>
-
-
-            <!--图表二-->
-            <el-col :span="8" class="bl3" style="width: 32vw">
-                <div class="charts-title gold">区域7月社保交易金额</div>
-                <bar4-position></bar4-position>
+            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域8月社保交易金额</span>
             </el-col>
-
-
-            <!--图表三-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">定点机构社保年度交易金额</div>
-                <two-line-chart :blueLineData="blueLineData" :yellowLineData="yellowLineData"></two-line-chart>
+            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <span style="line-height: 2.2;font-size: 1vw;" class="tc">定点机构社保年度交易金额</span>
             </el-col>
         </el-row>
         <br>
-
-        <!--          图表-->
-        <el-row type="flex" justify="space-between">
-            <!--图表一-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">今日药店营业额TOP10</div>
-                <div class="charts-1" id="eCharts-4">
-                </div>
+        <el-row  type="flex" justify="space-around">
+            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日药店营业额TOP10</span>
             </el-col>
-
-
-            <!--图表二-->
-            <el-col :span="8" class="bl3" style="width: 32vw">
-                <div class="charts-title gold">7月人群消费统计</div>
+            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <span style="line-height: 2.2;font-size: 1vw;" class="tc">8月人群消费统计</span>
+                <people-consumption></people-consumption>
             </el-col>
-
-
-            <!--图表三-->
-            <el-col :span="8" class="bl" style="width: 32vw">
-                <div class="charts-title blue">区域社保年度交易金额</div>
-                <four-line-charts :fxq="fxqSum" :caq="caqSum" :xqq="xqqSum"></four-line-charts>
+            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域社保年度交易金额</span>
             </el-col>
         </el-row>
+
 
     </div>
 </template>
 
 <script>
 
-    import bar4Position from "@/components/eCharts/bar4Position";
-    import HospitalTop10 from "@/components/eCharts/HospitalTop10";
-    import TwoLineChart from "@/components/eCharts/TwoLineChart";
-    import FourLineCharts from "@/components/eCharts/FourLineCharts";
+
+
+    import HospitalTop10 from "../components/eCharts/HospitalTop10";
+    import PeopleConsumption from "../components/eCharts/PeopleConsumption";
 
     export default {
-        beforeRouteEnter(to, from, next) {
-            document.querySelector('body').setAttribute('style', 'background-color:#004060')
-            next()
-        },
-        beforeRouteLeave(to, from, next) {
-            document.querySelector('body').setAttribute('style', 'background-color:#fff')
-            next()
-        },
         beforeDestroy() {
             window.removeEventListener('resize', this.handleResize)
-            this.pieCharts.dispose()
+            this.pieCharts2.dispose()
         },
         name: "Hospital",
-        components: {bar4Position, HospitalTop10, TwoLineChart, FourLineCharts},
+        components: {HospitalTop10,PeopleConsumption},
         methods: {
+            handleResize() {
+                this.pieCharts2.resize()
+            },
             toHome() {
                 this.$router.push('/')
-            }
+            },
+            //获取当前时间
+            timeFormate(timeStamp) {
+                let year = new Date(timeStamp).getFullYear();
+                let month = new Date(timeStamp).getMonth() + 1 < 10 ? "0" + (new Date(timeStamp).getMonth() + 1) : new Date(timeStamp).getMonth() + 1;
+                let date = new Date(timeStamp).getDate() < 10 ? "0" + new Date(timeStamp).getDate() : new Date(timeStamp).getDate();
+                let hh = new Date(timeStamp).getHours() < 10 ? "0" + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
+                let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
+                let dd = new Date(timeStamp).getDay() < 10 ? "0" + new Date(timeStamp).getDay() : new Date(timeStamp).getDay();
+                if (dd == 1) {
+                    this.nowDay = "星期一"
+                } else if (dd == 2) {
+                    this.nowDay = "星期二"
+                } else if (dd == 3) {
+                    this.nowDay = "星期三"
+                } else if (dd == 4) {
+                    this.nowDay = "星期四"
+                } else if (dd == 5) {
+                    this.nowDay = "星期五"
+                } else if (dd == 6) {
+                    this.nowDay = "星期六"
+                } else {
+                    this.nowDay = "星期日"
+                }
+                // this.nowDay = "星期" + dd
+                this.nowDate = year + "年" + month + "月" + date + "日"
+                this.nowTime = +" " + hh + ":" + mm;
+            },
+            // 定时器函数
+            nowTimes() {
+                this.timeFormate(new Date());
+                setInterval(this.nowTimes, 30 * 1000);
+            },
+        },
+        created(){
+            this.nowTimes();
         },
         data() {
             return {
-                blueLineData: [11, 11, 15, 13, 12, 13, 10, 6, 8, 12, 17],
-                yellowLineData: [1, 2, 2, 5, 3, 2, 7, 1, 4, 5, 6],
-                fxqSum: [11, 11, 15, 13, 12, 13, 10, 6, 8, 12, 17],
-                xqqSum: [1, 2, 3, 4, 5, 6, 2, 21, 4, 5, 6, 1],
-                caqSum: [1, 2, 2, 5, 7, 7, 7, 1, 4, 5, 6],
+                nowTime: '',
+                nowDay: '',
+                nowDate: '',
             }
-        }
+        },
+        mounted() {
+            this.$nextTick(()=>{
+                window.addEventListener('resize', this.handleResize)
+            })
+            this.nowTimes();
+
+        },
     }
 </script>
 
 <style scoped>
-    .title {
-        color: white;
-        font-size: 2vw;
+    .navbar_left {
+        background-image: url("../assets/navbar_left.png");
+        width: 33%;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
-    .charts-1 {
-        height: 400px;
+    .navbar_title {
+        background-image: url("../assets/navbar_title.png");
+        width: 34%;
+        margin: 0 auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
-    .charts-title {
-        width: 50%;
-        height: 3vw;
-        text-align: center;
-        margin: -20px auto;
-        padding: auto 0;
-        color: white;
-        line-height: 3vw;
-        border-radius: 50px 50px;
-        font-weight: bolder;
+    .navbar_right {
+        background-image: url("../assets/navbar_right.png");
+        width: 32%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .switchPage {
+        width: 190px;
+        height: 30px;
+        /*background-color: #dfb83f;*/
+        margin-left: 30%;
+        opacity: .5;
+        transition: all 0.4s;
+    }
+
+    .switchPage:hover {
+        opacity: 1;
+        /*color: #00F3F4;*/
+    }
+
+    .bgMid{
+        background-image: url("../assets/frame_mid.png");
+        background-position: center center;
+        height: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .mid_h{
+        height: 24vw;
     }
 </style>

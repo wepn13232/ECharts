@@ -18,7 +18,7 @@
         </div>
 
         <!--          图表-->
-        <el-row class="mt1 pb1" type="flex" justify="space-around">
+        <el-row class="mt1" type="flex" justify="space-around">
             <!--            第一列-->
             <el-col :span="6" class="h942" style="width: 27%">
                 <!--                1-1-->
@@ -54,7 +54,7 @@
                     <consumption-dynamics></consumption-dynamics>
                 </div>
                 <!--                3-2-->
-                <div class="Bg3 mt19" style="width: 100%;height: 67.0297%;text-align: center">
+                <div class="Bg3 mt19" style="width: 100%;height: 67.1297%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">今日营业额排行榜TOP10</span>
                     <hospital-top10></hospital-top10>
                 </div>
@@ -288,7 +288,7 @@
 
 <style scoped>
     .charts-map {
-        height: 42vw;
+        height: 47vw;
         width: 97%;
         margin: 0 auto;
     }
@@ -352,7 +352,7 @@
 
 <style>
     .charts-1 {
-        height: 16vw;
+        height: 14vw;
     }
 
     .tc {
@@ -398,7 +398,7 @@
     }
 
     .h942 {
-        height: 45vw;
+        height: 50vw;
     }
 
     .w802 {
@@ -469,7 +469,7 @@
     }
 
     .h33 {
-        height: 32.588%;
+        height: 32.888%;
     }
 
     .tc_s {
