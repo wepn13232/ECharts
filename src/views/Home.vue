@@ -2,9 +2,14 @@
     <div class="home">
         <!--        标题-->
         <div class="headerTitle" style="width: 100%;height: 91px;">
-            <div class="navbar_left" style="float: left;height: 91px"></div>
+            <div class="navbar_left" style="float: left;height: 91px;">
+                <span class="tc" style="line-height: 5vw;font-size: 1.5vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
+                <span  style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
+            </div>
             <div class="navbar_title" style="height: 91px;float: left"></div>
-            <div class="navbar_right" style="height: 91px;float: right"></div>
+            <div class="navbar_right" style="height: 91px;float: right">
+
+            </div>
 
         </div>
 
@@ -30,17 +35,18 @@
             <el-col :span="10" class="h942">
                 <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州商户状态分布</span>
+                    <div class="charts-map" id="eCharts-2"></div>
                 </div>
             </el-col>
 
             <!--            第三列-->
             <el-col :span="6" class="h942">
                 <!--                3-1-->
-                <div class=" Bg1" style="width:100%;height: 32.0594%;text-align: center" >
+                <div class=" Bg1" style="width:100%;height: 32.0594%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">全区域实时消费动态</span>
                 </div>
                 <!--                3-2-->
-                <div class="Bg3" style="width: 100%;height: 66.0297%;margin-top: 19px;text-align: center">
+                <div class="Bg3 mt19" style="width: 100%;height: 67.0297%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">今日营业额排行榜TOP10</span>
                 </div>
             </el-col>
@@ -95,8 +101,11 @@
         components: {bar4Position, HospitalTop10, IllegalTransition, IllegalShop},
         data() {
             return {
+                nowTime: '',
+                nowDay:'',
+                nowDate:'',
                 pieCharts2: null,
-                //图表2
+                //潮州地图设置
                 chartsOption2: {
                     title: {
                         text: '潮州地区地图',
@@ -125,17 +134,17 @@
                         show: true,
                         map: 'CZ',
                         label: {
-                            normal: {show: true},
-                            emphasis: {show: true}
+                            normal: {show: true, color: '#fff'},
+                            emphasis: {show: true, color: '#fff'}
                         },
                         roam: true,
                         itemStyle: {
                             normal: {
-                                areaColor: '#47D1FF',
-                                borderColor: '#3B5077',
+                                areaColor: '#00244F',
+                                borderColor: '#00B3FF',
                                 label: {show: true}
                             },
-                            emphasis: {areaColor: '#2B91B7', label: {show: true}}
+                            emphasis: {areaColor: 'rgba(0,63,139,0.72)', label: {show: true}}
                         },
                         zoom: 1
                     },
@@ -184,7 +193,27 @@
             },
             toHos() {
                 this.$router.push('Hospital')
-            }
+            },
+            //获取当前时间
+            timeFormate(timeStamp) {
+                let year = new Date(timeStamp).getFullYear();
+                let month = new Date(timeStamp).getMonth() + 1 < 10 ? "0" + (new Date(timeStamp).getMonth() + 1) : new Date(timeStamp).getMonth() + 1;
+                let date = new Date(timeStamp).getDate() < 10 ? "0" + new Date(timeStamp).getDate() : new Date(timeStamp).getDate();
+                let hh = new Date(timeStamp).getHours() < 10 ? "0" + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
+                let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
+                let dd = new Date(timeStamp).getDay()
+                this.nowDay="星期" +dd
+                this.nowDate=year + "年" + month + "月" + date + "日"
+                this.nowTime = + " " + hh + ":" + mm;
+            },
+            // 定时器函数
+            nowTimes() {
+                this.timeFormate(new Date());
+                setInterval(this.nowTimes, 30*1000);
+            },
+        },
+        created() {
+            this.nowTimes();
         },
         mounted() {
             this.$nextTick(() => {
@@ -193,13 +222,16 @@
                 this.pieCharts2.setOption(this.chartsOption2)
                 window.addEventListener('resize', this.handleResize)
             })
+            this.nowTimes();
         }
     }
 </script>
 
 <style scoped>
-    .charts-1 {
-        height: 400px;
+    .charts-map {
+        height: 600px;
+        width: 97%;
+        margin: 0 auto;
     }
 
     .charts-title {
@@ -283,7 +315,8 @@
     .blue {
         background-color: #2780f4;
     }
-    .tc{
+
+    .tc {
         color: #00F3F4;
     }
 
@@ -300,7 +333,7 @@
     }
 
     .w522 {
-        width: 522px;
+        width: 542px;
     }
 
     .h302 {
@@ -311,26 +344,9 @@
         background-image: url("../assets/frame_small1.png");
         width: 100%;
         /*background-position: center center;*/
-        background-size: contain;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
     }
-
-    .mt1 {
-        margin-top: 1%;
-    }
-
-    .mt1 {
-        margin-top: 1vw;
-    }
-
-    .mt19 {
-        margin-top: 19px;
-    }
-
-    .pb1 {
-        padding-bottom: 1vw;
-    }
-
     .Bg2 {
         background-image: url("../assets/frame_big1.png");
         width: 800px;
@@ -345,12 +361,30 @@
         width: 100%;
         height: 100%;
         /*background-position: center center;*/
-        background-size: contain;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
     }
 
+    .mt1 {
+        margin-top: 1%;
+    }
+
+    .mt1 {
+        margin-top: 1vw;
+    }
+
+    .mt19 {
+        margin-top: 7px;
+    }
+
+    .pb1 {
+        padding-bottom: 1vw;
+    }
+
+
+
     .h33 {
-        height: 33%;
+        height: 32.588%;
     }
 
 </style>
