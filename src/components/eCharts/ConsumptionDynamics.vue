@@ -97,10 +97,11 @@
 
     .el-table__body tr,
     .el-table__body td {
-        padding: 0 !important;
+        padding: 2px !important;
         border: none !important;
         height: 30%;
         color: white;
+        font-size: 10px;
     }
 
     .el-table--enable-row-hover .el-table__body tr:hover > td {
