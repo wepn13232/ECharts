@@ -33,7 +33,8 @@
                 legend: {
                     data: ['违规事件', '违规商户'],
                     textStyle: {
-                        color: '#E6F7FF'
+                        color: '#E6F7FF',
+                        fontSize:8
                     },
                     x: 'right',
                 },
@@ -51,6 +52,11 @@
                                 color: '#E6F7FF'
                             }
                         },
+                        axisLabel:{
+                            textStyle:{
+                                fontSize:10
+                            }
+                        },
                     }
                 ],
                 yAxis: [
@@ -58,6 +64,11 @@
                         min:'0',
                         splitLine: {
                             show: false
+                        },
+                        axisLabel:{
+                            textStyle:{
+                                fontSize:10
+                            }
                         },
                         type: 'value',
                         axisLine: {

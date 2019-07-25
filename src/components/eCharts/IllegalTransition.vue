@@ -61,7 +61,8 @@
                     barCategoryGap: '40%',
                     axisLabel: {
                         textStyle: {
-                            color: '#fff'
+                            color: '#fff',
+                            fontSize:10
                         }
                     },
                     axisLine: {
@@ -73,14 +74,15 @@
                 yAxis: {
                     axisLabel: {
                         textStyle: {
-                            color: '#fff'
+                            color: '#fff',
+                            fontSize:10
                         }
                     },
                     axisLine: {
                         lineStyle: {
                             color: 'white'
                         }
-                    }
+                    },
                 },
                 series: [
                     {

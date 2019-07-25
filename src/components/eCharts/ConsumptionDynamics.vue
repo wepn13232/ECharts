@@ -97,8 +97,8 @@
 
     .el-table__body tr,
     .el-table__body td {
-        padding: 0 !important;
         border: none;
+        padding: 0 !important;
         height: 30%;
         color: white;
     }

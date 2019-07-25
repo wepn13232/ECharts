@@ -33,8 +33,11 @@
                 legend: {
                     data: ['医院', '药店'],
                     textStyle: {
-                        color: 'white'
-                    }
+                        color: 'white',
+                        fontSize:8
+                    },
+                    itemWidth:20,
+                    itemHeight:12
                 },
                 grid: {
                     left: '3%',
@@ -49,7 +52,12 @@
                     },
                     axisLine: {
                         lineStyle: {
-                            color: 'white'
+                            color: 'white',
+                        }
+                    },
+                    axisLabel:{
+                        textStyle:{
+                            fontSize:10
                         }
                     }
                 },
@@ -63,6 +71,11 @@
                     },
                     splitLine:{
                         show:false
+                    },
+                    axisLabel:{
+                        textStyle:{
+                            fontSize:10
+                        }
                     },
                 },
                 series: [

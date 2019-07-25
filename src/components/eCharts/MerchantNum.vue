@@ -88,13 +88,13 @@
                         },
                         controlStyle: {
                             // show: false,
-                            showPlayBtn:true,
-                            showPrevBtn:false,
-                            showNextBtn:false,
-                            itemSize:17,
-                            position:'left',
-                            color:'#00F3F4',
-                            borderColor:'#00F3F4'
+                            showPlayBtn: true,
+                            showPrevBtn: false,
+                            showNextBtn: false,
+                            itemSize: 17,
+                            position: 'left',
+                            color: '#00F3F4',
+                            borderColor: '#00F3F4'
                         },
                         itemStyle: {
                             normal: {
@@ -126,8 +126,11 @@
                         x: 'right',
                         data: ['医院', '商户'],
                         textStyle: {
-                            color: '#E6F7FF'
-                        }
+                            color: '#E6F7FF',
+                            fontSize:8
+                        },
+                        itemWidth:20,
+                        itemHeight:12,
                     },
                     calculable: true,
                     grid: {
@@ -151,7 +154,6 @@
                     xAxis: [
                         {
                             'type': 'category',
-                            'axisLabel': {'interval': 0},
                             'data': [
                                 '枫溪区', '潮安区', '湘桥区', '饶平县'
                             ],
@@ -159,6 +161,11 @@
                             axisLine: {
                                 lineStyle: {
                                     color: '#E6F7FF'
+                                }
+                            },
+                            axisLabel: {
+                                textStyle: {
+                                    fontSize: 10
                                 }
                             },
                         }
@@ -170,6 +177,11 @@
                             axisLine: {
                                 lineStyle: {
                                     color: '#E6F7FF'
+                                }
+                            },
+                            axisLabel: {
+                                textStyle: {
+                                    fontSize: 10
                                 }
                             },
                         }

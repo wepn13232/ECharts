@@ -174,6 +174,9 @@
                             normal: {
                                 areaColor: '#00244F',
                                 borderColor: '#00B3FF',
+                                borderWidth:2,
+                                // shadowColor:'#00F3F4',
+                                // shadowBlur:10,
                                 label: {show: true}
                             },
                             emphasis: {areaColor: 'rgba(0,63,139,0.72)', label: {show: true}}
