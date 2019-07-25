@@ -1,33 +1,48 @@
 <template>
     <div class="home">
-        <div class="title w100 tc" style="font-weight: bolder;">
-            <span>——————  潮州社保数据可视化系统  ——————</span>
-        </div>
-        <a @click="toHos"
-           style="float: right;color: white;font-size: 1vw;text-decoration: none;cursor: pointer">切换子主题</a>
+        <!--        标题-->
+        <div class="headerTitle" style="width: 100%;height: 91px;">
+            <div class="navbar_left" style="float: left;height: 91px"></div>
+            <div class="navbar_title" style="height: 91px;float: left"></div>
+            <div class="navbar_right" style="height: 91px;float: right"></div>
 
+        </div>
 
         <!--          图表-->
-        <el-row class="mt3 pb1" type="flex" justify="space-around">
+        <el-row class="mt1 pb1" type="flex" justify="space-around">
             <!--            第一列-->
-            <el-col :span="6" class=" h942">
+            <el-col :span="6" class="h942">
                 <!--                1-1-->
-                <div class=" w522 h33 Bg1">
+                <div class=" w522 h33 Bg1" style="text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易一览</span>
                 </div>
-                <!--                1-1-->
-                <div class=" w522 h33 mt1 Bg1">
+                <!--                1-2-->
+                <div class=" w522 h33 mt19 Bg1" style="text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">区域定点商户数量</span>
                 </div>
-                <!--                1-1-->
-                <div class=" w522 h33 mt1 Bg1">
+                <!--                1-3-->
+                <div class=" w522 h33 mt19 Bg1" style="text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">区域8月违规商户数量</span>
                 </div>
             </el-col>
+
             <!--            第二列-->
-            <el-col :span="10" class="gold h942">
-
+            <el-col :span="10" class="h942">
+                <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州商户状态分布</span>
+                </div>
             </el-col>
-            <!--            第三列-->
-            <el-col :span="6" class="blue h942">
 
+            <!--            第三列-->
+            <el-col :span="6" class="h942">
+                <!--                3-1-->
+                <div class=" Bg1" style="width:100%;height: 32.0594%;text-align: center" >
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">全区域实时消费动态</span>
+                </div>
+                <!--                3-2-->
+                <div class="Bg3" style="width: 100%;height: 66.0297%;margin-top: 19px;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">今日营业额排行榜TOP10</span>
+                </div>
             </el-col>
 
         </el-row>
@@ -204,6 +219,29 @@
         font-size: 1.1vw;
     }
 
+    .navbar_left {
+        background-image: url("../assets/navbar_left.png");
+        width: 33%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .navbar_title {
+        background-image: url("../assets/navbar_title.png");
+        width: 34%;
+        margin: 0 auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .navbar_right {
+        background-image: url("../assets/navbar_right.png");
+        width: 32%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
 
 </style>
 
@@ -245,6 +283,9 @@
     .blue {
         background-color: #2780f4;
     }
+    .tc{
+        color: #00F3F4;
+    }
 
     .mt119 {
         margin-top: 119px;
@@ -267,20 +308,23 @@
     }
 
     .Bg1 {
-        background-image: url("../assets/divImg1.png");
-        /*height: 302px;*/
+        background-image: url("../assets/frame_small1.png");
         width: 100%;
-        background-position: center center;
+        /*background-position: center center;*/
         background-size: contain;
         background-repeat: no-repeat;
     }
 
     .mt1 {
-    margin-top: 1%;
+        margin-top: 1%;
     }
 
-    .mt3 {
-        margin-top: 3vw;
+    .mt1 {
+        margin-top: 1vw;
+    }
+
+    .mt19 {
+        margin-top: 19px;
     }
 
     .pb1 {
@@ -289,17 +333,18 @@
 
     .Bg2 {
         background-image: url("../assets/frame_big1.png");
-        width: 100%;
+        width: 800px;
         height: 100%;
-        background-position: center center;
-        background-size: contain;
+        background-position: center;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
     }
 
     .Bg3 {
         background-image: url("../assets/frame_big2.png");
         width: 100%;
-        background-position: center center;
+        height: 100%;
+        /*background-position: center center;*/
         background-size: contain;
         background-repeat: no-repeat;
     }
