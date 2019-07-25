@@ -92,11 +92,13 @@
         padding: 0 !important;
         height: 30px;
         background-color: rgb(5, 22, 66);
+        color: #00B3FF;
     }
 
     .el-table__body tr,
     .el-table__body td {
         padding: 0 !important;
+        border: none;
         height: 30%;
         color: white;
     }

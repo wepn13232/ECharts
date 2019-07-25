@@ -115,15 +115,28 @@
         padding: 0 !important;
         height: 30px;
         background-color: rgb(5, 22, 66);
+        color: #00B3FF;
     }
 
     .el-table__body tr,
     .el-table__body td {
         padding: 0 !important;
-        height: 30%;
-        /*background-color: rgb(5, 22, 66);*/
         border: none;
+        height: 30%;
         color: white;
+    }
+
+    .el-table--enable-row-hover .el-table__body tr:hover > td {
+        background-color: #2780f4 !important;
+    }
+
+
+    .el-table .other-row {
+        background: rgba(0, 243, 244, 0.11);
+    }
+    .el-table .main-row {
+        background-color: rgb(5, 22, 66);
+        /*opacity: 10%;*/
     }
     .el-table--border, .el-table--group{
         border: none;
@@ -134,10 +147,5 @@
     .el-table--border::after, .el-table--group::after{
         width: 0;
     }
-
-    .el-table--enable-row-hover .el-table__body tr:hover > td {
-        background-color: #2780f4 !important;
-    }
-
 
 </style>
