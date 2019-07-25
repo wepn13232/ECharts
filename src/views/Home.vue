@@ -88,6 +88,20 @@
         }
         return res;
     };
+    var convertNormalData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = normalShop[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+
 
     var shop = [
         {name: '商户1'},
@@ -101,6 +115,12 @@
         '商户2': [117.10205, 23.668171],
         '商户3': [116.49365, 23.674675],
         '商户4': [116.60872, 23.65159],
+    }
+    var normalShop={
+        '商户1': [116.64931, 23.761012],
+        '商户2': [117.11205, 23.648171],
+        '商户3': [116.48365, 23.684675],
+        '商户4': [116.61872, 23.62159],
     }
 
     export default {
@@ -188,9 +208,17 @@
                         {
                             name: '正常',
                             type: 'scatter',
+                            data:convertNormalData(shop),
                             itemStyle: {
                                 normal: {
                                     color: '#00FFB3'
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
                                 }
                             },
                             coordinateSystem: 'geo',

@@ -1,8 +1,10 @@
 <template>
     <!--    今日医院营业Top10-->
-    <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
+    <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;text-align: center" ref="tableCharts">
+        <span style="color: #FEFF63;font-size: 0.5vw">今日交易总额：50000元</span>
         <el-table :header-cell-style="{background:'#051642'}"
                   :data="tableData.slice(0,10)"
+                  :row-class-name="tableRowClassName"
                   :default-sort="{prop:'sum',order:'descending'}"
                   style="width: 100%;background-color: rgba(223,184,63,0)">
             <el-table-column
@@ -35,6 +37,13 @@
             handleResize() {
                 this.$refs.tableCharts.resize()
             },
+            tableRowClassName({row, rowIndex}) {
+                if (rowIndex === 1 || rowIndex === 3 || rowIndex === 5 || rowIndex === 7 || rowIndex === 9) {
+                    return 'other-row';
+                }else{
+                    return 'main-row'
+                }
+            }
         },
         data() {
             return {
@@ -98,15 +107,7 @@
     }
 </script>
 
-<style scoped>
-    .el-table__body tr,
-    .el-table__body td {
-        padding: 0 !important;
-        height: 10%;
-        background-color: rgb(5, 22, 66);
-        color: white;
-    }
-</style>
+
 
 <style>
     .el-table__header tr,
@@ -119,9 +120,19 @@
     .el-table__body tr,
     .el-table__body td {
         padding: 0 !important;
-        height: 10%;
-        background-color: rgb(5, 22, 66);
+        height: 30%;
+        /*background-color: rgb(5, 22, 66);*/
+        border: none;
         color: white;
+    }
+    .el-table--border, .el-table--group{
+        border: none;
+    }
+    .el-table__header-wrapper th:nth-last-of-type(2){
+        border-right: none;
+    }
+    .el-table--border::after, .el-table--group::after{
+        width: 0;
     }
 
     .el-table--enable-row-hover .el-table__body tr:hover > td {

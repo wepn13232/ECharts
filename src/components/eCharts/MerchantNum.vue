@@ -1,6 +1,7 @@
 <template>
     <!--    区域定点商户数量-->
     <div>
+        <span style="color: #FEFF63;font-size: 0.5vw;position: absolute;float: left;margin-left: -10%">全市 500家</span>
         <div class="charts-1" id="merchantNum"></div>
     </div>
 </template>
@@ -165,7 +166,6 @@
                     yAxis: [
                         {
                             type: 'value',
-                            name: '家',
                             splitLine: {show: false},
                             axisLine: {
                                 lineStyle: {
