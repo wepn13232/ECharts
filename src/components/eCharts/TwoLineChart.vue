@@ -48,18 +48,6 @@
                 grid: {
                     top: 80
                 },
-                // toolbox: {
-                //     show: true,
-                //     feature: {
-                //         dataZoom: {
-                //             yAxisIndex: 'none'
-                //         },
-                //         dataView: {readOnly: false},
-                //         magicType: {type: ['line', 'bar']},
-                //         restore: {},
-                //         saveAsImage: {}
-                //     }
-                // },
                 xAxis: {
                     type: 'category',
                     boundaryGap: false,

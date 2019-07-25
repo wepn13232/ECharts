@@ -3,12 +3,16 @@
         <!--        标题-->
         <div class="headerTitle" style="width: 100%;height: 91px;">
             <div class="navbar_left" style="float: left;height: 91px;">
-                <span class="tc" style="line-height: 5vw;font-size: 1.5vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
-                <span  style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
+                <span class="tc_title"
+                      style="line-height: 5vw;font-size: 1.5vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
+                <span style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
             </div>
             <div class="navbar_title" style="height: 91px;float: left"></div>
             <div class="navbar_right" style="height: 91px;float: right">
-
+                <div class="switchPage" style="margin-top: 3%;cursor: pointer" @click="toHos">
+                    <span class="tc_s" id="font1" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
+                    <div class="BgChange" id="fontPic" style="width: 40px;height: 40px;float: right"></div>
+                </div>
             </div>
 
         </div>
@@ -16,14 +20,16 @@
         <!--          图表-->
         <el-row class="mt1 pb1" type="flex" justify="space-around">
             <!--            第一列-->
-            <el-col :span="6" class="h942">
+            <el-col :span="6" class="h942" style="width: 27%">
                 <!--                1-1-->
                 <div class=" w522 h33 Bg1" style="text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易一览</span>
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">年度违规交易一览</span>
+                    <illegal-operation style="margin-top: 1%"></illegal-operation>
                 </div>
                 <!--                1-2-->
                 <div class=" w522 h33 mt19 Bg1" style="text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">区域定点商户数量</span>
+                    <merchant-num></merchant-num>
                 </div>
                 <!--                1-3-->
                 <div class=" w522 h33 mt19 Bg1" style="text-align: center">
@@ -40,7 +46,7 @@
             </el-col>
 
             <!--            第三列-->
-            <el-col :span="6" class="h942">
+            <el-col :span="6" class="h942" style="width: 27%">
                 <!--                3-1-->
                 <div class=" Bg1" style="width:100%;height: 32.0594%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">全区域实时消费动态</span>
@@ -62,6 +68,8 @@
     import HospitalTop10 from "@/components/eCharts/HospitalTop10";
     import IllegalTransition from "../components/eCharts/IllegalTransition";
     import IllegalShop from "../components/eCharts/IllegalShop";
+    import IllegalOperation from "../components/eCharts/IllegalOperation";
+    import MerchantNum from "../components/eCharts/MerchantNum";
 
     //将数据显示至地图（转换
     var convertData = function (data) {
@@ -98,12 +106,12 @@
             this.pieCharts2.dispose()
         },
         name: 'home',
-        components: {bar4Position, HospitalTop10, IllegalTransition, IllegalShop},
+        components: {IllegalOperation,MerchantNum},
         data() {
             return {
                 nowTime: '',
-                nowDay:'',
-                nowDate:'',
+                nowDay: '',
+                nowDate: '',
                 pieCharts2: null,
                 //潮州地图设置
                 chartsOption2: {
@@ -202,14 +210,14 @@
                 let hh = new Date(timeStamp).getHours() < 10 ? "0" + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
                 let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
                 let dd = new Date(timeStamp).getDay()
-                this.nowDay="星期" +dd
-                this.nowDate=year + "年" + month + "月" + date + "日"
-                this.nowTime = + " " + hh + ":" + mm;
+                this.nowDay = "星期" + dd
+                this.nowDate = year + "年" + month + "月" + date + "日"
+                this.nowTime = +" " + hh + ":" + mm;
             },
             // 定时器函数
             nowTimes() {
                 this.timeFormate(new Date());
-                setInterval(this.nowTimes, 30*1000);
+                setInterval(this.nowTimes, 30 * 1000);
             },
         },
         created() {
@@ -229,7 +237,7 @@
 
 <style scoped>
     .charts-map {
-        height: 600px;
+        height: 42vw;
         width: 97%;
         margin: 0 auto;
     }
@@ -274,12 +282,26 @@
         background-repeat: no-repeat;
     }
 
+    .switchPage {
+        width: 190px;
+        height: 30px;
+        /*background-color: #dfb83f;*/
+        margin-left: 30%;
+        opacity: .5;
+        transition: all 0.4s;
+    }
+
+    .switchPage:hover {
+        opacity: 1;
+        /*color: #00F3F4;*/
+    }
+
 
 </style>
 
 <style>
     .charts-1 {
-        height: 400px;
+        height: 16vw;
     }
 
     .tc {
@@ -347,6 +369,7 @@
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
+
     .Bg2 {
         background-image: url("../assets/frame_big1.png");
         width: 800px;
@@ -362,6 +385,15 @@
         height: 100%;
         /*background-position: center center;*/
         background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .BgChange {
+        background-image: url("../assets/icon_switch.png");
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-position: center center;
         background-repeat: no-repeat;
     }
 
@@ -381,10 +413,21 @@
         padding-bottom: 1vw;
     }
 
-
+    .w27 {
+        width: 27%;
+    }
 
     .h33 {
         height: 32.588%;
+    }
+
+    .tc_s {
+        color: rgb(0, 243, 244);
+        font-size: 14px;
+    }
+
+    .tc_title {
+        color: #00B3FF;
     }
 
 </style>
