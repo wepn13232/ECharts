@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="charts-1" id="consumptionStatistics"></div>
+        <div class="charts-1" id="illegalMerchant"></div>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
             window.removeEventListener('resize', this.handleResize)
             this.pieCharts.dispose()
         },
-        name: "ConsumptionStatistics",
+        name: "IllegalMerchant",
         data() {
             return {
                 pieCharts: null,
@@ -31,21 +31,22 @@
                     }
                 },
                 legend: {
-                    data: ['男', '女'],
-                    top: 30,
+                    data: ['医院', '药店'],
                     textStyle: {
                         color: 'white'
                     }
                 },
                 grid: {
                     left: '3%',
-                    bottom: '3%',
-                    top: 60,
+                    bottom: '30%',
+                    top: 30,
                     containLabel: true
                 },
                 xAxis: {
-                    name:'人',
                     type: 'value',
+                    splitLine:{
+                        show:false
+                    },
                     axisLine: {
                         lineStyle: {
                             color: 'white'
@@ -53,24 +54,26 @@
                     }
                 },
                 yAxis: {
-                    name: '岁',
                     type: 'category',
-                    data: ['0-14', '15-35', '36-60', '60以上'],
+                    data: ['饶平县', '枫溪区', '湘桥区', '潮安区'],
                     axisLine: {
                         lineStyle: {
                             color: 'white'
                         }
-                    }
+                    },
+                    splitLine:{
+                        show:false
+                    },
                 },
                 series: [
                     {
-                        name: '男',
+                        name: '医院',
                         type: 'bar',
                         barCategoryGap: '60%',
                         stack: '总量',
                         itemStyle: {
                             normal: {
-                                color: '#188df0'
+                                color: '#00B3FF'
                             }
                         },
                         label: {
@@ -82,13 +85,13 @@
                         data: [320, 302, 301, 334]
                     },
                     {
-                        name: '女',
+                        name: '药店',
                         barCategoryGap: '60%',
                         type: 'bar',
                         stack: '总量',
                         itemStyle: {
                             normal: {
-                                color: '#dfb83f'
+                                color: '#00FFB3'
                             }
                         },
                         label: {
@@ -102,7 +105,7 @@
                 ]
             }
             this.$nextTick(() => {
-                this.pieCharts = this.$echarts.init(document.getElementById('consumptionStatistics'))
+                this.pieCharts = this.$echarts.init(document.getElementById('illegalMerchant'))
                 this.pieCharts.setOption(cSCharts)
                 window.addEventListener('resize', this.handleResize)
             })

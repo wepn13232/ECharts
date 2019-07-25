@@ -1,19 +1,19 @@
 <template>
     <!--    今日医院营业Top10-->
     <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
-        <el-table :header-cell-style="{background:'#004060'}"
+        <el-table :header-cell-style="{background:'#051642'}"
                   :data="tableData.slice(0,10)"
                   :default-sort="{prop:'sum',order:'descending'}"
                   style="width: 100%;background-color: rgba(223,184,63,0)">
             <el-table-column
                     prop="date"
                     label="日期"
-                    width="150">
+                    width="110">
             </el-table-column>
             <el-table-column
                     prop="name"
                     label="姓名"
-                    width="150">
+                    width="120">
             </el-table-column>
             <el-table-column
                     prop="sum"
@@ -98,18 +98,29 @@
     }
 </script>
 
+<style scoped>
+    .el-table__body tr,
+    .el-table__body td {
+        padding: 0 !important;
+        height: 10%;
+        background-color: rgb(5, 22, 66);
+        color: white;
+    }
+</style>
+
 <style>
     .el-table__header tr,
     .el-table__header th {
         padding: 0 !important;
-        height: 35px;
+        height: 30px;
+        background-color: rgb(5, 22, 66);
     }
 
     .el-table__body tr,
     .el-table__body td {
         padding: 0 !important;
-        height: 35px;
-        background-color: rgb(0, 64, 95);
+        height: 10%;
+        background-color: rgb(5, 22, 66);
         color: white;
     }
 

@@ -45,7 +45,6 @@
             <!--图表二-->
             <el-col :span="8" class="bl3" style="width: 32vw">
                 <div class="charts-title gold">7月人群消费统计</div>
-                <consumption-statistics></consumption-statistics>
             </el-col>
 
 
@@ -64,7 +63,6 @@
     import bar4Position from "@/components/eCharts/bar4Position";
     import HospitalTop10 from "@/components/eCharts/HospitalTop10";
     import TwoLineChart from "@/components/eCharts/TwoLineChart";
-    import ConsumptionStatistics from "@/components/eCharts/ConsumptionStatistics";
     import FourLineCharts from "@/components/eCharts/FourLineCharts";
 
     export default {
@@ -81,7 +79,7 @@
             this.pieCharts.dispose()
         },
         name: "Hospital",
-        components: {bar4Position, HospitalTop10, TwoLineChart, ConsumptionStatistics, FourLineCharts},
+        components: {bar4Position, HospitalTop10, TwoLineChart, FourLineCharts},
         methods: {
             toHome() {
                 this.$router.push('/')

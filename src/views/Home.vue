@@ -34,6 +34,7 @@
                 <!--                1-3-->
                 <div class=" w522 h33 mt19 Bg1" style="text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">区域8月违规商户数量</span>
+                    <illegal-merchant></illegal-merchant>
                 </div>
             </el-col>
 
@@ -50,10 +51,12 @@
                 <!--                3-1-->
                 <div class=" Bg1" style="width:100%;height: 32.0594%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">全区域实时消费动态</span>
+                    <consumption-dynamics></consumption-dynamics>
                 </div>
                 <!--                3-2-->
                 <div class="Bg3 mt19" style="width: 100%;height: 67.0297%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">今日营业额排行榜TOP10</span>
+                    <hospital-top10></hospital-top10>
                 </div>
             </el-col>
 
@@ -64,12 +67,12 @@
 
 <script>
     import CZ from '../assets/Cz'
-    import bar4Position from "@/components/eCharts/bar4Position";
-    import HospitalTop10 from "@/components/eCharts/HospitalTop10";
-    import IllegalTransition from "../components/eCharts/IllegalTransition";
-    import IllegalShop from "../components/eCharts/IllegalShop";
+
     import IllegalOperation from "../components/eCharts/IllegalOperation";
     import MerchantNum from "../components/eCharts/MerchantNum";
+    import IllegalMerchant from "../components/eCharts/IllegalMerchant";
+    import ConsumptionDynamics from "../components/eCharts/ConsumptionDynamics";
+    import HospitalTop10 from "../components/eCharts/HospitalTop10";
 
     //将数据显示至地图（转换
     var convertData = function (data) {
@@ -106,7 +109,7 @@
             this.pieCharts2.dispose()
         },
         name: 'home',
-        components: {IllegalOperation,MerchantNum},
+        components: {IllegalOperation,MerchantNum,IllegalMerchant,ConsumptionDynamics,HospitalTop10},
         data() {
             return {
                 nowTime: '',
@@ -128,6 +131,7 @@
                     toolbox: {},
                     legend: {
                         align: 'left',
+                        orient:'vertical',
                         left: 10,
                         top: 30,
                         textStyle: {
@@ -162,7 +166,7 @@
                             type: 'effectScatter',
                             itemStyle: {
                                 normal: {
-                                    color: '#f4563c'
+                                    color: '#FF4F46'
                                 }
                             },
                             coordinateSystem: 'geo',
@@ -186,7 +190,7 @@
                             type: 'scatter',
                             itemStyle: {
                                 normal: {
-                                    color: '#188df0'
+                                    color: '#00FFB3'
                                 }
                             },
                             coordinateSystem: 'geo',

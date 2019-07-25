@@ -104,7 +104,7 @@
                             color: '#00F3F4',
                             width: '1'
                         },
-                        y: 145,
+                        y: '63%',
                         x: 90,
                         right: 40,
                         axisType: 'category',
