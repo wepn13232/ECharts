@@ -97,8 +97,8 @@
 
     .el-table__body tr,
     .el-table__body td {
-        border: none;
         padding: 0 !important;
+        border: none !important;
         height: 30%;
         color: white;
     }
@@ -115,6 +115,7 @@
         background-color: rgb(5, 22, 66);
         /*opacity: 10%;*/
     }
+
     .el-table--border, .el-table--group{
         border: none;
     }
