@@ -1,0 +1,183 @@
+<template>
+    <!--    潮州市地图分布-->
+    <div>
+        <div class="charts-map" id="cz_Map"></div>
+    </div>
+</template>
+
+<script>
+    import CZ from '../../assets/Cz'
+
+
+    //将数据显示至地图（转换
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoSan[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+    //转换正常商户
+    var convertNormalData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = normalShop[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+    //地图商户数据
+    var shop = [
+        {name: '商户1'},
+        {name: '商户2'},
+        {name: '商户3'},
+        {name: '商户4'},
+        {name: '商户5'},
+        {name: '商户6'},
+        {name: '商户7'},
+        {name: '商户8'},
+        {name: '商户9'},
+        {name: '商户10'},
+        {name: '商户11'},
+    ]
+    var geoSan = {
+        '商户1': [116.67931, 23.781012],
+        '商户2': [117.0205, 23.658171],
+        '商户3': [116.49365, 23.674675],
+        '商户4': [116.60872, 23.65159],
+
+    }
+    var normalShop = {
+        '商户1': [116.64931, 23.761012],
+        '商户2': [117.11205, 23.648171],
+        '商户3': [116.48365, 23.684675],
+        '商户4': [116.61872, 23.62159],
+        '商户5': [116.81872, 23.62159],
+        '商户6': [116.81872, 23.72159],
+        '商户7': [116.81872, 23.82159],
+        '商户8': [116.81872, 23.92159],
+        '商户9': [116.71872, 23.72159],
+        '商户10': [116.91872, 23.72159],
+        '商户11': [116.3872, 23.72159],
+
+    }
+
+    export default {
+        beforeDestroy() {
+            window.removeEventListener('resize', this.handleResize)
+            this.pieCharts.dispose()
+        },
+        name: "CZ_Map",
+        data() {
+            return {
+                pieCharts: null,
+            }
+        },
+        mounted() {
+            //封装地图数据
+            const _Map = {
+                title: {
+                    text: '潮州地区地图',
+                    textStyle: {
+                        color: 'white'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}<br/>{a}'
+                },
+                toolbox: {},
+                legend: {
+                    align: 'left',
+                    orient: 'vertical',
+                    left: 10,
+                    top: 30,
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    itemStyle: {
+                        color: '#2780f4'
+                    }
+                },
+                //地图配置
+                geo: {
+                    show: true,
+                    map: 'CZ',
+                    label: {
+                        normal: {show: true, color: '#fff'},
+                        emphasis: {show: true, color: '#fff'}
+                    },
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#00244F',
+                            borderColor: '#00B3FF',
+                            borderWidth: 2,
+                            // shadowColor:'#00F3F4',
+                            // shadowBlur:10,
+                            label: {show: true}
+                        },
+                        emphasis: {areaColor: 'rgba(0,63,139,0.72)', label: {show: true}}
+                    },
+                    zoom: 1
+                },
+                series: [
+                    {
+                        name: '异常',
+                        type: 'effectScatter',
+                        itemStyle: {
+                            normal: {
+                                color: '#FF4F46'
+                            }
+                        },
+                        coordinateSystem: 'geo',
+                        showEffectOn: 'render',
+                        rippleEffect: {
+                            brushType: 'stroke'
+                        },
+                        hoverAnimation: true,
+                        zlevel: 1,
+                        data: convertData(shop)
+                    },
+                    {
+                        name: '正常',
+                        type: 'scatter',
+                        zlevel: 1,
+                        data: convertNormalData(shop),
+                        itemStyle: {
+                            normal: {
+                                color: '#00FFB3'
+                            }
+                        },
+                        coordinateSystem: 'geo',
+                    }
+                ]
+            }
+            this.$nextTick(() => {
+                this.pieCharts = this.$echarts.init(document.getElementById('cz_Map'))
+                this.$echarts.registerMap('CZ', CZ)
+                this.pieCharts.setOption(_Map)
+                window.addEventListener('resize', this.handleResize)
+            })
+        },
+    }
+</script>
+
+<style scoped>
+    .charts-map {
+        height: 47vw;
+        width: 97%;
+        margin: 0 auto;
+    }
+</style>

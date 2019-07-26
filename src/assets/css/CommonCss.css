@@ -1,0 +1,134 @@
+
+.charts-1 {
+    height: 14vw;
+}
+
+.charts-2 {
+    height: 19vw;
+}
+
+.tc {
+    text-align: center;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.ml2 {
+    margin-left: 2vw;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.bl {
+    border: #2780f4 1px solid;
+    border-radius: 5%;
+}
+
+.bl3 {
+    border: #dfb83f 1px solid;
+    border-radius: 5%;
+}
+
+.gold {
+    background-color: #dfb83f;
+}
+
+.blue {
+    background-color: #2780f4;
+}
+
+.tc {
+    color: #00F3F4;
+}
+
+.mt119 {
+    margin-top: 119px;
+}
+
+.h942 {
+    height: 50vw;
+}
+
+.w802 {
+    width: 802px;
+}
+
+.w522 {
+    width: 542px;
+}
+
+.h302 {
+    height: 302px;
+}
+
+.Bg1 {
+    background-image: url("../../assets/frame_small1.png");
+    width: 100%;
+    /*background-position: center center;*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Bg2 {
+    background-image: url("../../assets/frame_big1.png");
+    width: 800px;
+    height: 100%;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Bg3 {
+    background-image: url("../../assets/frame_big2.png");
+    width: 100%;
+    height: 100%;
+    /*background-position: center center;*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.BgChange {
+    background-image: url("../../assets/icon_switch.png");
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mt1 {
+    margin-top: 1%;
+}
+
+.mt1 {
+    margin-top: 1vw;
+}
+
+.mt19 {
+    margin-top: 7px;
+}
+
+.pb1 {
+    padding-bottom: 1vw;
+}
+
+.w27 {
+    width: 27%;
+}
+
+.h33 {
+    height: 32.888%;
+}
+
+.tc_s {
+    color: rgb(0, 243, 244);
+    font-size: 14px;
+}
+
+.tc_title {
+    color: #00B3FF;
+}
