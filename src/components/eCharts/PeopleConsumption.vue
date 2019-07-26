@@ -36,18 +36,15 @@
                     data: ['男', '女'],
                     textStyle: {
                         color: 'white',
-                        fontSize:11
                     },
-                    itemWidth:20,
-                    itemHeight:12,
+                    right:20,
                     top:10,
                 },
                 grid: {
                     left: '3%',
-                    bottom: '0%',
-                    top: 60,
+                    top:55,
+                    bottom:10,
                     containLabel: true,
-                    height:280
                 },
                 xAxis: {
                     type: 'value',

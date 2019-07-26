@@ -1,0 +1,31 @@
+.el-table__header tr,
+.el-table__header th {
+    padding: 0 !important;
+    height: 30px;
+    background-color: rgb(5, 22, 66);
+    color: #00B3FF;
+}
+
+
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+    background-color: #2780f4 !important;
+}
+
+
+.el-table .other-row {
+    background-color: rgb(5, 22, 66);
+}
+
+
+.el-table--border, .el-table--group {
+    border: none;
+}
+
+.el-table__header-wrapper th:nth-last-of-type(2) {
+    border-right: none;
+}
+
+.el-table--border::after, .el-table--group::after {
+    width: 0;
+}

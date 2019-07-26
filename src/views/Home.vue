@@ -2,14 +2,14 @@
     <div class="home">
         <!--        标题-->
         <div class="headerTitle" style="width: 100%;height: 91px;">
-            <div class="navbar_left" style="float: left;height: 91px;">
+            <div class="navbar_left" style="position: absolute;width: 32%;height: 5vw;">
                 <span class="tc_title"
-                      style="line-height: 5vw;font-size: 1.4vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
-                <span style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
+                      style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
+                <span style="line-height: 5vw;font-size: 1vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
             </div>
-            <div class="navbar_title" style="height: 91px;float: left"></div>
-            <div class="navbar_right" style="height: 91px;float: right">
-                <div class="switchPage" style="margin-top: 3%;cursor: pointer" @click="toHos">
+            <div class="navbar_title" style="height: 5vw;position: absolute;width: 40%;margin-left: 30%"></div>
+            <div class="navbar_right" style="height: 5vw;position: absolute;width: 32%;margin-left: 68%">
+                <div class="switchPage" style="margin-top: 4%;cursor: pointer" @click="toHos">
                     <span class="tc_s" id="font1" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
                     <div class="BgChange" id="fontPic" style="width: 40px;height: 40px;float: right"></div>
                 </div>
@@ -109,19 +109,35 @@
         {name: '商户2'},
         {name: '商户3'},
         {name: '商户4'},
+        {name: '商户5'},
+        {name: '商户6'},
+        {name: '商户7'},
+        {name: '商户8'},
+        {name: '商户9'},
+        {name: '商户10'},
+        {name: '商户11'},
     ]
 
     var geoSan = {
         '商户1': [116.67931, 23.781012],
-        '商户2': [117.10205, 23.668171],
+        '商户2': [117.0205, 23.658171],
         '商户3': [116.49365, 23.674675],
         '商户4': [116.60872, 23.65159],
+
     }
     var normalShop = {
         '商户1': [116.64931, 23.761012],
         '商户2': [117.11205, 23.648171],
         '商户3': [116.48365, 23.684675],
         '商户4': [116.61872, 23.62159],
+        '商户5': [116.81872, 23.62159],
+        '商户6': [116.81872, 23.72159],
+        '商户7': [116.81872, 23.82159],
+        '商户8': [116.81872, 23.92159],
+        '商户9': [116.71872, 23.72159],
+        '商户10': [116.91872, 23.72159],
+        '商户11': [116.3872, 23.72159],
+
     }
 
     export default {
@@ -199,30 +215,17 @@
                                 brushType: 'stroke'
                             },
                             hoverAnimation: true,
-                            label: {
-                                normal: {
-                                    formatter: '{b}',
-                                    position: 'right',
-                                    show: true
-                                }
-                            },
                             zlevel: 1,
                             data: convertData(shop)
                         },
                         {
                             name: '正常',
                             type: 'scatter',
+                            zlevel: 1,
                             data: convertNormalData(shop),
                             itemStyle: {
                                 normal: {
                                     color: '#00FFB3'
-                                }
-                            },
-                            label: {
-                                normal: {
-                                    formatter: '{b}',
-                                    position: 'right',
-                                    show: true
                                 }
                             },
                             coordinateSystem: 'geo',
@@ -243,7 +246,7 @@
                 let year = new Date(timeStamp).getFullYear();
                 let month = new Date(timeStamp).getMonth() + 1 < 10 ? "0" + (new Date(timeStamp).getMonth() + 1) : new Date(timeStamp).getMonth() + 1;
                 let date = new Date(timeStamp).getDate() < 10 ? "0" + new Date(timeStamp).getDate() : new Date(timeStamp).getDate();
-                let hh = new Date(timeStamp).getHours() < 10 ? "0" + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
+                let hh = new Date(timeStamp).getHours() < 10 ?  + new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
                 let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
                 let dd = new Date(timeStamp).getDay() < 10 ? "0" + new Date(timeStamp).getDay() : new Date(timeStamp).getDay();
                 if (dd == 1) {
@@ -312,24 +315,24 @@
 
     .navbar_left {
         background-image: url("../assets/navbar_left.png");
-        width: 33%;
-        background-size: contain;
+        width: 30%;
+        background-size: 100% ;
         background-repeat: no-repeat;
     }
 
     .navbar_title {
         background-image: url("../assets/navbar_title.png");
-        width: 34%;
+        width: 45%;
         margin: 0 auto;
-        background-size: contain;
+        background-size: 100% ;
         background-position: center;
         background-repeat: no-repeat;
     }
 
     .navbar_right {
         background-image: url("../assets/navbar_right.png");
-        width: 32%;
-        background-size: contain;
+        width: 30%;
+        background-size: 100%;
         background-repeat: no-repeat;
     }
 
@@ -337,7 +340,7 @@
         width: 190px;
         height: 30px;
         /*background-color: #dfb83f;*/
-        margin-left: 30%;
+        margin-left: 50%;
         opacity: .5;
         transition: all 0.4s;
     }
@@ -353,6 +356,9 @@
 <style>
     .charts-1 {
         height: 14vw;
+    }
+    .charts-2 {
+        height: 19vw;
     }
 
     .tc {

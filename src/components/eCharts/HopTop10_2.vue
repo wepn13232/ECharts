@@ -1,5 +1,5 @@
 <template>
-    <!--    今日医院营业Top10-->
+    <!--    今日医院营业Top10_2-->
     <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;text-align: center" ref="tableCharts">
         <span style="color: #FEFF63;font-size: 1vw">今日交易总额：50000元</span>
         <el-table id="hosTop10" :header-cell-style="{background:'#051642'}"
@@ -110,11 +110,11 @@
 <style scoped>
     @import "../../assets/css/HosTop10.css";
     #hosTop10 /deep/ .el-table__body tr, /deep/ .el-table__body td {
-        padding: 1px ;
+        padding: 1px;
         border: none ;
-        height: 2.5vw;
-        color: white;
         font-size: 1vw;
+        height: 2vw;
+        color: white;
     }
 </style>
 

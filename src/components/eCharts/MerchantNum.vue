@@ -123,14 +123,13 @@
                     },
                     tooltip: {},
                     legend: {
-                        x: 'right',
+                        right: 17,
                         data: ['医院', '商户'],
                         textStyle: {
                             color: '#E6F7FF',
-                            fontSize: 10
+                            fontSize: 11
                         },
-                        itemWidth: 20,
-                        itemHeight: 12,
+
                     },
                     calculable: true,
                     grid: {
@@ -208,80 +207,80 @@
                 options: [
                     {
                         series: [
-                            {data: dataMap.dataHos['1']},
-                            {data: dataMap.dataMed['1']},
+                            {data: dataMap.dataHos['1'],barWidth: '20%'},
+                            {data: dataMap.dataMed['1'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['2']},
-                            {data: dataMap.dataMed['2']},
+                            {data: dataMap.dataHos['2'],barWidth: '20%'},
+                            {data: dataMap.dataMed['2'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['3']},
-                            {data: dataMap.dataMed['3']},
+                            {data: dataMap.dataHos['3'],barWidth: '20%'},
+                            {data: dataMap.dataMed['3'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['4']},
-                            {data: dataMap.dataMed['4']},
+                            {data: dataMap.dataHos['4'],barWidth: '20%'},
+                            {data: dataMap.dataMed['4'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['5']},
-                            {data: dataMap.dataMed['5']},
+                            {data: dataMap.dataHos['5'],barWidth: '20%'},
+                            {data: dataMap.dataMed['5'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['6']},
-                            {data: dataMap.dataMed['6']},
+                            {data: dataMap.dataHos['6'],barWidth: '20%'},
+                            {data: dataMap.dataMed['6'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['7']},
-                            {data: dataMap.dataMed['7']},
+                            {data: dataMap.dataHos['7'],barWidth: '20%'},
+                            {data: dataMap.dataMed['7'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['8']},
-                            {data: dataMap.dataMed['8']},
+                            {data: dataMap.dataHos['8'],barWidth: '20%'},
+                            {data: dataMap.dataMed['8'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['9']},
-                            {data: dataMap.dataMed['9']},
+                            {data: dataMap.dataHos['9'],barWidth: '20%'},
+                            {data: dataMap.dataMed['9'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['10']},
-                            {data: dataMap.dataMed['10']},
+                            {data: dataMap.dataHos['10'],barWidth: '20%'},
+                            {data: dataMap.dataMed['10'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['10']},
-                            {data: dataMap.dataMed['10']},
+                            {data: dataMap.dataHos['10'],barWidth: '20%'},
+                            {data: dataMap.dataMed['10'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['11']},
-                            {data: dataMap.dataMed['11']},
+                            {data: dataMap.dataHos['11'],barWidth: '20%'},
+                            {data: dataMap.dataMed['11'],barWidth: '20%'},
                         ]
                     },
                     {
                         series: [
-                            {data: dataMap.dataHos['12']},
-                            {data: dataMap.dataMed['12']},
+                            {data: dataMap.dataHos['12'],barWidth: '20%'},
+                            {data: dataMap.dataMed['12'],barWidth: '20%'},
                         ]
                     },
 
