@@ -56,6 +56,11 @@
                     }
                 },
                 yAxis: {
+                    splitLine:{
+                        lineStyle:{
+                            color:'rgba(255,255,255,0.51)'
+                        }
+                    },
                     axisLine: {
                         lineStyle: {
                             color: '#00D4FF',

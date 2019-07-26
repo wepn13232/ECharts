@@ -114,7 +114,7 @@
         border: none ;
         height: 2.5vw;
         color: white;
-        font-size: 1vw;
+        font-size: 13px;
     }
 </style>
 

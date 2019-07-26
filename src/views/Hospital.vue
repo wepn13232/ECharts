@@ -16,40 +16,42 @@
             </div>
 
 
-
         </div>
         <br>
 
         <!--        图表-->
-        <el-row type="flex" justify="space-around">
-            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
-                <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日医院营业额Top10</span>
-                <hop-top10_2></hop-top10_2>
-            </el-col>
-            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
-                <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域8月社保交易金额</span>
-                <transaction-sum></transaction-sum>
-            </el-col>
-            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
-                <span style="line-height: 2.2;font-size: 1vw;" class="tc">定点机构社保年度交易金额</span>
-                <tran-sum-of-year></tran-sum-of-year>
-            </el-col>
-        </el-row>
-        <br>
-        <el-row type="flex" justify="space-around">
-            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
-                <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日药店营业额TOP10</span>
-                <shop-top10></shop-top10>
-            </el-col>
-            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
-                <span style="line-height: 2.2;font-size: 1vw;" class="tc">8月人群消费统计</span>
-                <people-consumption></people-consumption>
-            </el-col>
-            <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
-                <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域社保年度交易金额</span>
-                <spot-tran-sum-of-year></spot-tran-sum-of-year>
-            </el-col>
-        </el-row>
+        <div class="form">
+            <el-row type="flex" justify="space-around">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日医院营业额Top10</span>
+                    <hop-top10_2></hop-top10_2>
+                </el-col>
+                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域8月社保交易金额</span>
+                    <transaction-sum></transaction-sum>
+                </el-col>
+                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">定点机构社保年度交易金额</span>
+                    <tran-sum-of-year></tran-sum-of-year>
+                </el-col>
+            </el-row>
+            <br>
+            <el-row type="flex" justify="space-around">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日药店营业额TOP10</span>
+                    <shop-top10></shop-top10>
+                </el-col>
+                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">8月人群消费统计</span>
+                    <people-consumption></people-consumption>
+                </el-col>
+                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域社保年度交易金额</span>
+                    <spot-tran-sum-of-year></spot-tran-sum-of-year>
+                </el-col>
+            </el-row>
+        </div>
+
 
 
     </div>
@@ -72,7 +74,15 @@
             this.pieCharts2.dispose()
         },
         name: "Hospital",
-        components: {HospitalTop10, PeopleConsumption, TransactionSum, TranSumOfYear, ShopTop10, SpotTranSumOfYear,HopTop10_2},
+        components: {
+            HospitalTop10,
+            PeopleConsumption,
+            TransactionSum,
+            TranSumOfYear,
+            ShopTop10,
+            SpotTranSumOfYear,
+            HopTop10_2
+        },
         methods: {
             handleResize() {
                 this.pieCharts2.resize()
@@ -137,25 +147,41 @@
     .navbar_left {
         background-image: url("../assets/navbar_left.png");
         width: 30%;
-        background-size: 100% ;
+        background-size: 100%;
         background-repeat: no-repeat;
+        /*left: -40%;*/
+        /*animation: slideFromLeft 1s ease-in-out;*/
+        /*animation-delay: 1s;*/
+        /*定义动画后固定状态*/
+        /*animation-fill-mode: forwards;*/
     }
 
     .navbar_title {
         background-image: url("../assets/navbar_title.png");
         width: 45%;
         margin: 0 auto;
-        background-size: 100% ;
+        background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
+        /*animation-fill-mode: forwards;*/
     }
 
     .navbar_right {
         background-image: url("../assets/navbar_right.png");
         width: 30%;
         background-size: 100%;
+        /*right: -40%;*/
         background-repeat: no-repeat;
+        /*animation: slideFromRight 1s ease-in-out;*/
+        /*animation-delay: 1s;*/
+        /*animation-fill-mode: forwards;*/
     }
+    /*.form{*/
+    /*    opacity: 0;*/
+    /*    animation: opacityIn 1s ease-in-out;*/
+    /*    animation-delay: 3s;*/
+    /*    animation-fill-mode: forwards;*/
+    /*}*/
 
     .switchPage {
         width: 190px;
@@ -182,4 +208,48 @@
     .mid_h {
         height: 24vw;
     }
+
+    .headerTitle {
+        position: relative;
+        overflow: hidden;
+        /*animation: slideDown 1s ease-in-out;*/
+    }
+
+/*!*    动画效果*!*/
+/*    @keyframes slideDown {*/
+/*        0%{*/
+/*            bottom: 91px;*/
+/*        }*/
+
+/*        100%{*/
+/*            bottom: 0;*/
+/*        }*/
+/*    }*/
+/*!*    左滑入*!*/
+/*    @keyframes slideFromLeft {*/
+/*        0%{*/
+/*            left: -40%;*/
+/*        }*/
+/*        100%{*/
+/*            left: 0;*/
+/*        }*/
+/*    }*/
+/*!*    右滑入*!*/
+/*    @keyframes slideFromRight {*/
+/*        0%{*/
+/*            right: -40%;*/
+/*        }*/
+/*        100%{*/
+/*            right: 0;*/
+/*        }*/
+/*    }*/
+/*!*    淡入*!*/
+/*    @keyframes opacityIn {*/
+/*        0%{*/
+/*            opacity: 0;*/
+/*        }*/
+/*        100%{*/
+/*            opacity: 1;*/
+/*        }*/
+/*    }*/
 </style>

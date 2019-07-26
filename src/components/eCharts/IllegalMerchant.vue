@@ -32,13 +32,12 @@
                     }
                 },
                 legend: {
+                    right:20,
                     data: ['医院', '药店'],
                     textStyle: {
                         color: 'white',
                         fontSize: 11
                     },
-                    itemWidth: 20,
-                    itemHeight: 12
                 },
                 grid: {
                     left: '3%',

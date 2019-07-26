@@ -38,7 +38,7 @@
                         fontSize:11
                     },
                     top:10,
-                    x: 'right',
+                    right:20,
                 },
                 grid: {
                     containLabel: true,

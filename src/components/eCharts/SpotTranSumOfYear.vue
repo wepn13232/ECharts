@@ -23,12 +23,14 @@
                 tooltip: {
                     trigger: 'axis'
                 },
+                color:['#FF8E55','#E632A2','#00F3F4','#4B43FB'],
                 legend: {
-                    icon:'rectangle',
+                    icon:'roundRect',
                     data: ['枫溪区', '湘桥区', '潮安区', '饶平县'],
                     textStyle: {
                         color: '#E6F7FF'
-                    }
+                    },
+                    right:20,
                 },
                 grid: {
                     top:55,

@@ -116,7 +116,7 @@
         padding: 1px;
         border: none;
         font-size: 13px;
-        height: 1vw;
+        height: 1.7vw;
         color: white;
     }
 </style>

@@ -4,6 +4,10 @@
     height: 2vw;
     background-color: rgb(5, 22, 66);
     color: #00B3FF;
+    border: none !important;
+}
+.el-table__body{
+    border: none !important;
 }
 
 

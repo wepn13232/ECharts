@@ -90,7 +90,7 @@
     #consumptionTable /deep/ .el-table__body tr, /deep/ .el-table__body td {
         padding: 1px;
         border: none ;
-        font-size: 1vw;
+        font-size: 13px;
         height: 2vw;
         color: white;
     }
