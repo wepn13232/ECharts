@@ -1,7 +1,7 @@
 .el-table__header tr,
 .el-table__header th {
     padding: 0 !important;
-    height: 30px;
+    height: 2vw;
     background-color: rgb(5, 22, 66);
     color: #00B3FF;
 }

@@ -115,8 +115,8 @@
     #shopTop10 /deep/ .el-table__body tr, /deep/ .el-table__body td {
         padding: 1px;
         border: none;
-        font-size: 1vw;
-        height: 2vw;
+        font-size: 13px;
+        height: 1vw;
         color: white;
     }
 </style>
