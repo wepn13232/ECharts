@@ -35,8 +35,9 @@
                     data: ['医院', '药店'],
                     textStyle: {
                         color: '#E6F7FF',
-                        fontSize:9
+                        fontSize:11
                     },
+                    top:10,
                     x: 'right',
                 },
                 grid: {
