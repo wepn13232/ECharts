@@ -103,6 +103,7 @@
             },
             //间隔时间获取一次交易金额
             getDealNumByMin(){
+                //设置定时器
                 setInterval(()=>{
                     this.dealNum=this.dealNum+1
                 },60*1000)
