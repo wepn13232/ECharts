@@ -1,5 +1,5 @@
 <template>
-    <!--    区域定点商户数量-->
+    <!--    总交易用户走势-->
     <div>
         <span style="color: #FEFF63;font-size: 0.5vw;position: absolute;float: left;margin-left: -10%">全市 500家</span>
         <div class="charts-1" id="merchantNum"></div>

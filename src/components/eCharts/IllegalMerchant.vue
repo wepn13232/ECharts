@@ -1,5 +1,5 @@
 <template>
-    <!--    违规商户一览-->
+    <!--    总交易笔数走势-->
     <div>
         <div class="charts-1" id="illegalMerchant"></div>
     </div>

@@ -28,12 +28,12 @@
                 </div>
                 <!--                1-2-->
                 <div class=" w522 h33 mt19 Bg1" style="text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw" class="tc">区域定点商户数量</span>
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">总交易用户走势</span>
                     <merchant-num></merchant-num>
                 </div>
                 <!--                1-3-->
                 <div class=" w522 h33 mt19 Bg1" style="text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw" class="tc">区域8月违规商户数量</span>
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">总交易笔数走势</span>
                     <illegal-merchant></illegal-merchant>
                 </div>
             </el-col>
@@ -41,7 +41,9 @@
             <!--            第二列-->
             <el-col :span="10" class="h942">
                 <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州商户状态分布</span>
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州地图商户分布图</span>
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder">总交易金额:￥78.2万</div>
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;margin-top: 3vh">总交易笔数:67笔</div>
                     <c-z_-map></c-z_-map>
                 </div>
             </el-col>
@@ -50,12 +52,12 @@
             <el-col :span="6" class="h942" style="width: 27%">
                 <!--                3-1-->
                 <div class=" Bg1" style="width:100%;height: 32.0594%;text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw" class="tc">全区域实时消费动态</span>
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">今日实时交易动态</span>
                     <consumption-dynamics></consumption-dynamics>
                 </div>
                 <!--                3-2-->
                 <div class="Bg3 mt19" style="width: 100%;height: 67.1297%;text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw" class="tc">今日营业额排行榜TOP10</span>
+                    <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易额TOP10</span>
                     <hospital-top10></hospital-top10>
                 </div>
             </el-col>

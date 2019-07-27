@@ -1,5 +1,5 @@
 <template>
-    <!--    实时消费动态-->
+    <!--    今日实时交易动态-->
     <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
         <el-table id="consumptionTable" :header-cell-style="{background:'#051642'}"
                   :data="tableData.slice(0,5)"

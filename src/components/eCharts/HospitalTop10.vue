@@ -1,7 +1,7 @@
 <template>
-    <!--    今日医院营业Top10-->
+    <!--    年度交易额TOP10-->
     <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;text-align: center" ref="tableCharts">
-        <span style="color: #FEFF63;font-size: 1vw">今日交易总额：50000元</span>
+<!--        <span style="color: #FEFF63;font-size: 1vw">今日交易总额：50000元</span>-->
         <el-table id="hosTop10" :header-cell-style="{background:'#051642'}"
                   :data="tableData.slice(0,10)"
                   :row-class-name="tableRowClassName"

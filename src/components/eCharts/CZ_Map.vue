@@ -88,7 +88,7 @@
             //封装地图数据
             const _Map = {
                 title: {
-                    text: '潮州地区地图',
+                    text: '交易状态监控',
                     textStyle: {
                         color: 'white'
                     }
@@ -134,7 +134,19 @@
                 },
                 series: [
                     {
-                        name: '异常',
+                        name: '正常'+'  '+'657家',
+                        type: 'scatter',
+                        zlevel: 1,
+                        data: convertNormalData(shop),
+                        itemStyle: {
+                            normal: {
+                                color: '#00FFB3'
+                            }
+                        },
+                        coordinateSystem: 'geo',
+                    },
+                    {
+                        name: '异常'+'   '+'4家',
                         type: 'effectScatter',
                         itemStyle: {
                             normal: {
@@ -150,18 +162,6 @@
                         zlevel: 1,
                         data: convertData(shop)
                     },
-                    {
-                        name: '正常',
-                        type: 'scatter',
-                        zlevel: 1,
-                        data: convertNormalData(shop),
-                        itemStyle: {
-                            normal: {
-                                color: '#00FFB3'
-                            }
-                        },
-                        coordinateSystem: 'geo',
-                    }
                 ]
             }
             this.$nextTick(() => {
