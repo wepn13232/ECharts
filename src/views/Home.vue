@@ -42,7 +42,7 @@
             <el-col :span="10" class="h942">
                 <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州地图商户分布图</span>
-                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder">总交易金额:￥78.2万</div>
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder">总交易金额:￥{{dealNum}}万</div>
                     <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;margin-top: 3vh">总交易笔数:67笔</div>
                     <c-z_-map></c-z_-map>
                 </div>
@@ -89,6 +89,9 @@
                 nowDay: '',
                 nowDate: '',
                 pieCharts2: null,
+                dealNum:20,
+                dealSum:'',
+                count:0.1,
             }
         },
         methods: {
@@ -97,6 +100,12 @@
             },
             toHos() {
                 this.$router.push('Hospital')
+            },
+            //间隔时间获取一次交易金额
+            getDealNumByMin(){
+                setInterval(()=>{
+                    this.dealNum=this.dealNum+1
+                },60*1000)
             },
             //获取当前时间
             timeFormate(timeStamp) {
@@ -133,14 +142,17 @@
         },
         created() {
             this.nowTimes();
+            // this.getDealNumByMin();
         },
         mounted() {
             //监听图表变换，自适应页面
             this.$nextTick(() => {
                 window.addEventListener('resize', this.handleResize)
+                // this.getDealNumByMin();
             })
             this.nowTimes();
-        }
+            this.getDealNumByMin();
+        },
     }
 </script>
 
