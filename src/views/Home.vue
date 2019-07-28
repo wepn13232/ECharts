@@ -42,10 +42,10 @@
             <el-col :span="10" class="h942">
                 <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州地图商户分布图</span>
-                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;">
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;" class="dealNum">
                         总交易金额:￥{{dealNum}}万
                     </div>
-                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;margin-top: 3vh">
+                    <div style="color: white;position: absolute;margin-left: 29%;font-size: 1vw;font-weight: bolder;margin-top: 3vh" class="dealSum">
                         总交易笔数:67笔
                     </div>
                     <c-z_-map></c-z_-map>
@@ -212,6 +212,18 @@
     .switchPage:hover {
         opacity: 1;
         /*color: #00F3F4;*/
+    }
+    .dealNum{
+        width: 11vw;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .dealSum{
+        width: 10vw;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
 
