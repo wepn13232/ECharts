@@ -42,11 +42,19 @@
             <el-col :span="10" class="h942">
                 <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州地图商户分布图</span>
-                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;" class="dealNum">
-                        总交易金额:￥{{dealNum}}万
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;">
+                        总交易金额:
+                        <div class="dealNum" style="position: absolute">
+                        </div>
                     </div>
-                    <div style="color: white;position: absolute;margin-left: 29%;font-size: 1vw;font-weight: bolder;margin-top: 3vh" class="dealSum">
-                        总交易笔数:67笔
+                    <div style="color: white;position: absolute;margin-left: 35.5%;font-size: 1vw;font-weight: bolder;" class="dealNum">
+                        <span>￥{{dealNum}}万</span>
+                    </div>
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;margin-top: 3vh">
+                        总交易笔数:
+                    </div>
+                    <div style="color: white;position: absolute;margin-left: 35.5%;font-size: 1vw;font-weight: bolder;margin-top: 3vh" class="dealSum">
+                        <span>{{dealSum}}笔</span>
                     </div>
                     <c-z_-map></c-z_-map>
                 </div>
@@ -94,8 +102,7 @@
                 nowDate: '',
                 pieCharts2: null,
                 dealNum: 20,
-                dealSum: '',
-                count: 0.1,
+                dealSum: 67,
             }
         },
         methods: {
@@ -114,9 +121,10 @@
                     }
                     that.dealNum = numText
                 }
-                setInterval(()=>{
+
+                setInterval(() => {
                     numSlideFun(); // 调用数字动画
-                },2*1000)
+                }, 2 * 1000)
             },
             handleResize() {
                 this.pieCharts2.resize()
@@ -170,7 +178,7 @@
             this.nowTimes();
             // this.getDealNumByMin();
             //金额变动，初始值--变动值
-            this.numFun(this.dealNum,100)
+            this.numFun(this.dealNum, 100)
         }
         ,
     }
@@ -213,17 +221,25 @@
         opacity: 1;
         /*color: #00F3F4;*/
     }
-    .dealNum{
-        width: 11vw;
+
+    .dealNum {
+        width: 6vw;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        text-align: -webkit-left;
+        text-align: left;
+        text-align: -moz-left;
     }
-    .dealSum{
-        width: 10vw;
+
+    .dealSum {
+        width: 5.5vw;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        text-align: -webkit-left;
+        text-align: left;
+        text-align: -moz-left;
     }
 
 
