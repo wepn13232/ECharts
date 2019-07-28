@@ -42,7 +42,7 @@
             <el-col :span="10" class="h942">
                 <div class="Bg2" style="width: 100%;height: 100%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw" class="tc">潮州地图商户分布图</span>
-                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder">
+                    <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;">
                         总交易金额:￥{{dealNum}}万
                     </div>
                     <div style="color: white;position: absolute;margin-left: 30%;font-size: 1vw;font-weight: bolder;margin-top: 3vh">
@@ -99,18 +99,30 @@
             }
         },
         methods: {
+            //金额变动动画
+            numFun(startNum, maxNum) {
+                var that = this
+                let numText = startNum;
+                let golb; // 为了清除requestAnimationFrame
+                function numSlideFun() { // 数字动画
+                    numText += 1; // 速度的计算可以为小数 。数字越大，滚动越快
+                    if (numText >= maxNum) {
+                        numText = maxNum;
+                        cancelAnimationFrame(golb);
+                    } else {
+                        golb = requestAnimationFrame(numSlideFun);
+                    }
+                    that.dealNum = numText
+                }
+                setInterval(()=>{
+                    numSlideFun(); // 调用数字动画
+                },2*1000)
+            },
             handleResize() {
                 this.pieCharts2.resize()
             },
             toHos() {
                 this.$router.push('Hospital')
-            },
-            //间隔时间获取一次交易金额
-            getDealNumByMin() {
-                //设置定时器
-                setInterval(() => {
-                    this.dealNum = this.dealNum + 1
-                }, 60 * 1000)
             },
             //获取当前时间
             timeFormate(timeStamp) {
@@ -144,18 +156,23 @@
                 this.timeFormate(new Date());
                 setInterval(this.nowTimes, 30 * 1000);
             },
-        },
+        }
+        ,
         created() {
             this.nowTimes();
-        },
+        }
+        ,
         mounted() {
             //监听图表变换，自适应页面
             this.$nextTick(() => {
                 window.addEventListener('resize', this.handleResize)
             })
             this.nowTimes();
-            this.getDealNumByMin();
-        },
+            // this.getDealNumByMin();
+            //金额变动，初始值--变动值
+            this.numFun(this.dealNum,100)
+        }
+        ,
     }
 </script>
 

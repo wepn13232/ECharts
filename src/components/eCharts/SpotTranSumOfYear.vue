@@ -31,6 +31,7 @@
                         color: '#E6F7FF'
                     },
                     right:20,
+                    top:10,
                 },
                 grid: {
                     top:55,

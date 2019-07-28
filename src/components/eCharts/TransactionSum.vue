@@ -24,6 +24,10 @@
         },
         mounted() {
             const _transcationSum = {
+                grid:{
+                    top:35,
+                    bottom:30,
+                },
                 legend: {
                     textStyle: {
                         color: '#E6F7FF'
