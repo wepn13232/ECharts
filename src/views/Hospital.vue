@@ -1,14 +1,14 @@
 <template>
     <div>
         <!--        标题-->
-        <div class="headerTitle" style="width: 100%;height: 91px;">
-            <div class="navbar_left" style="position: absolute;width: 33%;height: 5vw;">
+        <div class="headerTitle" style="width: 100%;height: 100px">
+            <div class="navbar_left" style="position: absolute;width: 33%;height: 92px;">
                 <span class="tc_title"
                       style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
                 <span style="line-height: 5vw;font-size: 1vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
             </div>
-            <div class="navbar_title" style="height: 5vw;position: absolute;width: 40%;margin-left: 30%"></div>
-            <div class="navbar_right" style="height: 5vw;position: absolute;width: 33%;margin-left: 67%">
+            <div class="navbar_title" style="height: 100px;position: absolute;width: 40%;margin-left: 30%"></div>
+            <div class="navbar_right" style="height: 92px;position: absolute;width: 33%;margin-left: 67%">
                 <div class="switchPage" style="margin-top: 4%;cursor: pointer" @click="toHome">
                     <span class="tc_s" id="font1" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
                     <div class="BgChange" id="fontPic" style="width: 40px;height: 40px;float: right"></div>
@@ -20,32 +20,32 @@
         <br>
 
         <!--        图表-->
-        <div class="form">
+        <div class="form" >
             <el-row type="flex" justify="space-around">
-                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日医院营业额Top10</span>
                     <hop-top10_2></hop-top10_2>
                 </el-col>
-                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域8月社保交易金额</span>
                     <transaction-sum></transaction-sum>
                 </el-col>
-                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">定点机构社保年度交易金额</span>
                     <tran-sum-of-year></tran-sum-of-year>
                 </el-col>
             </el-row>
             <br>
             <el-row type="flex" justify="space-around">
-                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日药店营业额TOP10</span>
                     <shop-top10></shop-top10>
                 </el-col>
-                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">8月人群消费统计</span>
                     <people-consumption></people-consumption>
                 </el-col>
-                <el-col :span="7" class=" bgMid mid_h" style="width: 30%;text-align: center">
+                <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域社保年度交易金额</span>
                     <spot-tran-sum-of-year></spot-tran-sum-of-year>
                 </el-col>
@@ -144,6 +144,10 @@
 </script>
 
 <style scoped>
+    .form{
+        width: 99%;
+        margin: 0 auto;
+    }
     .navbar_left {
         background-image: url("../assets/navbar_left.png");
         width: 30%;
