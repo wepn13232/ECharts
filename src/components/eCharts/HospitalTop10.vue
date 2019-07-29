@@ -130,5 +130,12 @@
             opacity: 1;
         }
     }
+    #hosTop10 /deep/ .el-table--group:after,/deep/ .el-table--border:after,/deep/ .el-table::before {
+        content: '';
+        position: absolute;
+        /*background-color: #EBEEF5;*/
+        display: none;
+        z-index: 1;
+    }
 </style>
 

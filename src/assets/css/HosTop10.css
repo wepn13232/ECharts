@@ -50,7 +50,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 0;
+    height: 0 !important;
 }
 #eCharts-5 /deep/ .el-table--group:after,/deep/ .el-table--border:after,/deep/ .el-table:before {
     content: '';
@@ -60,7 +60,7 @@
  }
 #eCharts-5 /deep/.el-table:before{
     border-bottom:  0 solid rgba(204, 204, 204, 0);
-    height: 0
+    height: 0 !important;
 }
 
 
