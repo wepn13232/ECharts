@@ -10,12 +10,12 @@
             <el-table-column
                     prop="No"
                     label="排名"
-                    width="110">
+                    width="90">
             </el-table-column>
             <el-table-column
                     prop="name"
                     label="商户名称"
-                    width="170">
+                    width="220">
             </el-table-column>
             <el-table-column
                     prop="sum"
@@ -112,9 +112,23 @@
     #hosTop10 /deep/ .el-table__body tr, /deep/ .el-table__body td {
         padding: 1px ;
         border: none ;
+        bottom: 35vw;
         height: 2.5vw;
         color: white;
         font-size: 13px;
+        animation: tableAnimate 1.5s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    /*    表格动画*/
+    @keyframes tableAnimate {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            bottom: 0;
+            opacity: 1;
+        }
     }
 </style>
 

@@ -8,12 +8,13 @@
             <el-table-column
                     prop="name"
                     label="商户名称"
-                   >
+                    width="220"
+            >
             </el-table-column>
             <el-table-column
                     prop="money"
                     label="金额"
-                    width="120">
+                    width="110">
             </el-table-column>
             <el-table-column
                     prop="method"
@@ -21,6 +22,7 @@
             </el-table-column>
         </el-table>
     </div>
+
 </template>
 
 <script>
@@ -37,13 +39,17 @@
             tableRowClassName({rowIndex}) {
                 if (rowIndex === 1 || rowIndex === 3 || rowIndex === 5 || rowIndex === 7 || rowIndex === 9) {
                     return 'other-row';
-                }else{
+                } else {
                     return 'main-row'
                 }
-            }
+            },
+            tableShowCollapse() {
+                this.tableShow = !this.tableShow
+            },
         },
         data() {
             return {
+                tableShow: false,
                 tableData: [
                     {
                         name: '潮州总社区医院',
@@ -82,28 +88,48 @@
         },
         mounted() {
             window.addEventListener('resize', this.handleResize)
+            setTimeout(() => {
+                this.tableShowCollapse()
+            }, 1000)
         },
     }
 </script>
 <style scoped>
     @import "../../assets/css/HosTop10.css";
+
     #consumptionTable /deep/ .el-table__body tr, /deep/ .el-table__body td {
         padding: 1px;
-        border: none ;
+        border: none;
         font-size: 13px;
+        bottom: 10vw;
         height: 2vw;
         color: white;
+        animation: tableAnimate 1.5s ease-in-out;
+        animation-fill-mode: forwards;
     }
+
+    /*    表格动画*/
+    @keyframes tableAnimate {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            bottom: 0;
+            opacity: 1;
+        }
+    }
+
 
 </style>
 <style>
-    #consumptionTable  .el-table .other-row {
+    #consumptionTable .el-table .other-row {
         background-color: rgb(5, 22, 66);
 
     }
-      .el-table  .main-row {
-          background: rgba(0, 243, 244, 0.11);
-      }
+
+    .el-table .main-row {
+        background: rgba(0, 243, 244, 0.11);
+    }
 
 </style>
 

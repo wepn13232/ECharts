@@ -31,49 +31,49 @@
                     }
                 },
                 legend: {
-                    icon:'rectangle',
+                    icon: 'rectangle',
                     data: ['医院', '药店'],
                     textStyle: {
                         color: '#E6F7FF',
-                        fontSize:11
+                        fontSize: 11
                     },
-                    top:10,
-                    right:20,
+                    top: 10,
+                    right: 20,
                 },
                 grid: {
                     containLabel: true,
-                    top:35,
-                    bottom:10,
+                    top: 35,
+                    bottom: 10,
                 },
                 xAxis: [
                     {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
+                        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
                         axisLine: {
                             lineStyle: {
                                 color: '#00D4FF'
                             }
                         },
-                        axisLabel:{
-                            textStyle:{
-                                fontSize:12,
-                                color:'#E6F7FF'
+                        axisLabel: {
+                            textStyle: {
+                                fontSize: 12,
+                                color: '#E6F7FF'
                             }
                         },
                     }
                 ],
                 yAxis: [
                     {
-                        name:'万元',
-                        min:'0',
+                        name: '万元',
+                        min: '0',
                         splitLine: {
                             show: false
                         },
-                        axisLabel:{
-                            textStyle:{
-                                fontSize:12,
-                                color:'#E6F7FF'
+                        axisLabel: {
+                            textStyle: {
+                                fontSize: 12,
+                                color: '#E6F7FF'
                             }
                         },
                         type: 'value',
@@ -90,16 +90,16 @@
                         type: 'line',
                         stack: '总量',
                         areaStyle: {},
-                        data: [12, 12, 101, 134, 90, 20, 10,23,4,45,1,2],
+                        data: [12, 12, 101, 134, 90, 20, 10, 23, 4, 45, 1,12],
                         label: {
                             normal: {
                                 show: true,
                                 position: 'top',
-                                color:'#fff'
+                                color: '#fff'
                             }
                         },
-                        itemStyle:{
-                            normal:{
+                        itemStyle: {
+                            normal: {
                                 color: new this.$echarts.graphic.LinearGradient(
                                     0, 0, 0, 1,
                                     [
@@ -116,16 +116,16 @@
                         type: 'line',
                         stack: '总量',
                         areaStyle: {},
-                        data: [20, 12, 11, 24, 20, 30, 10,12,13,14,55,21],
+                        data: [20, 12, 11, 24, 20, 30, 10, 12, 13, 14, 55,12],
                         label: {
                             normal: {
                                 show: true,
                                 position: 'top',
-                                color:'#fff'
+                                color: '#fff'
                             }
                         },
-                        itemStyle:{
-                            normal:{
+                        itemStyle: {
+                            normal: {
                                 color: new this.$echarts.graphic.LinearGradient(
                                     0, 0, 0, 1,
                                     [

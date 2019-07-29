@@ -1,7 +1,9 @@
 <template>
     <!--    潮州市地图分布-->
     <div>
-        <div class="charts-map" id="cz_Map"></div>
+        <div class="addIcon" style="width: 50px;height: 50px;color:white;position: absolute;margin-left: 19vw;margin-top: 19vh;z-index: 3">+1</div>
+        <div class="charts-map" id="cz_Map">
+        </div>
     </div>
 </template>
 
@@ -96,15 +98,21 @@
                 pieCharts: null,
             }
         },
+        methods:{
+            handleResize() {
+                this.pieCharts.resize()
+            },
+        },
         mounted() {
             //封装地图数据
             const _Map = {
-                title: {
-                    text: '交易状态监控',
-                    textStyle: {
-                        color: 'white'
-                    }
-                },
+                // title: {
+                //     text: '交易状态监控',
+                //     textStyle: {
+                //         color: 'white',
+                //         fontSize:14
+                //     }
+                // },
                 tooltip: {
                     trigger: 'item',
                     formatter: '{b}<br/>{a}'
@@ -116,11 +124,8 @@
                     left: 10,
                     top: 30,
                     textStyle: {
-                        color: '#fff'
+                        color: []
                     },
-                    itemStyle: {
-                        color: '#2780f4'
-                    }
                 },
                 //地图配置
                 geo: {
@@ -146,7 +151,7 @@
                 },
                 series: [
                     {
-                        name: '正常'+'  '+'657家',
+                        name: '正常商户'+'  '+'657家',
                         type: 'scatter',
                         zlevel: 1,
                         data: convertNormalData(shop),
@@ -158,7 +163,7 @@
                         coordinateSystem: 'geo',
                     },
                     {
-                        name: '异常'+'   '+'4家',
+                        name: '异常商户'+'   '+'4家',
                         type: 'effectScatter',
                         itemStyle: {
                             normal: {
@@ -191,5 +196,32 @@
         height: 47vw;
         width: 97%;
         margin: 0 auto;
+    }
+    .addIcon{
+        opacity: 0;
+        animation: addIconToNum 2s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+    /*添加动画*/
+    @keyframes addIconToNum {
+        0%{
+            opacity: 0;
+            margin-top: 19vh;
+            margin-left: 19vw;
+        }
+        25%{
+            margin-top: 19vh;
+            margin-left: 19vw;
+        }
+        50%{
+            margin-top: 19vh;
+            margin-left: 19vw;
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+            margin-top: 0;
+            margin-left: 36vw;
+        }
     }
 </style>

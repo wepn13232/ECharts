@@ -2,13 +2,13 @@
     <div>
         <!--        标题-->
         <div class="headerTitle" style="width: 100%;height: 91px;">
-            <div class="navbar_left" style="position: absolute;width: 32%;height: 5vw;">
+            <div class="navbar_left" style="position: absolute;width: 33%;height: 5vw;">
                 <span class="tc_title"
                       style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
                 <span style="line-height: 5vw;font-size: 1vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
             </div>
             <div class="navbar_title" style="height: 5vw;position: absolute;width: 40%;margin-left: 30%"></div>
-            <div class="navbar_right" style="height: 5vw;position: absolute;width: 32%;margin-left: 68%">
+            <div class="navbar_right" style="height: 5vw;position: absolute;width: 33%;margin-left: 67%">
                 <div class="switchPage" style="margin-top: 4%;cursor: pointer" @click="toHome">
                     <span class="tc_s" id="font1" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
                     <div class="BgChange" id="fontPic" style="width: 40px;height: 40px;float: right"></div>

@@ -5,6 +5,8 @@ import store from './store'
 import './registerServiceWorker'
 import echarts from 'echarts'
 import axios from 'axios'
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
+import '../src/assets/css/font.css'
 
 
 import {
@@ -21,6 +23,7 @@ Vue.config.productionTip = false
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Tabs);
+Vue.use(CollapseTransition);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(echarts);
