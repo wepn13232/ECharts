@@ -134,7 +134,7 @@
 
                 setInterval(() => {
                     numSlideFun(); // 调用数字动画
-                }, 2 * 1000)
+                }, 3 * 1000)
             },
             //交易笔数变换
             sumChange() {
@@ -152,7 +152,7 @@
             this.numFun(this.dealNum, 2077)
             setTimeout(() => {
                 this.sumChange()
-            }, 2000)
+            }, 3000)
         }
         ,
         mounted() {
@@ -219,13 +219,29 @@
         }
     }
 
+/*    图表进入动画*/
+    @keyframes showContanier {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+
+    .container {
+        width: 99%;
+        margin: 0 auto;
+        opacity: 0;
+        animation: showContanier 0.5s ease-in-out;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+    }
+
 </style>
 
 <style>
     @import "../assets/css/CommonCss.css";
 
-    .container {
-        width: 99%;
-        margin: 0 auto;
-    }
+
 </style>

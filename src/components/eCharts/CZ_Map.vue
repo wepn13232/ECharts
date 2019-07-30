@@ -200,6 +200,7 @@
     .addIcon{
         opacity: 0;
         animation: addIconToNum 2s ease-in-out;
+        animation-delay: 1s;
         animation-fill-mode: forwards;
     }
     /*添加动画*/
