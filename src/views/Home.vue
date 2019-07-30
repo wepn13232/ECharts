@@ -1,21 +1,7 @@
 <template>
     <div class="home">
         <!--        标题-->
-        <div class="headerTitle" style="width: 100%;height: 91px;">
-            <div class="navbar_left" style="position: absolute;width: 33%;height: 5vw;">
-                <span class="tc_title"
-                      style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
-                <span style="line-height: 5vw;font-size: 1vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
-            </div>
-            <div class="navbar_title" style="height: 5vw;position: absolute;width: 40%;margin-left: 30%"></div>
-            <div class="navbar_right" style="height: 5vw;position: absolute;width: 33%;margin-left: 67%">
-                <div class="switchPage" style="margin-top: 4%;cursor: pointer" @click="toHos">
-                    <span class="tc_s" id="font1" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
-                    <div class="BgChange" id="fontPic" style="width: 40px;height: 40px;float: right"></div>
-                </div>
-            </div>
-
-        </div>
+        <common_-title :isHomeIndex="isHome"></common_-title>
 
         <!--          图表-->
         <div class="container">
@@ -103,6 +89,7 @@
     import CZ_Map from "../components/eCharts/CZ_Map";
     import TranUserCharts from "../components/eCharts/TranUserCharts";
     import TranSumCharts from "../components/eCharts/TranSumCharts";
+    import common_Title from "../components/common/common_Title";
 
     export default {
         beforeDestroy() {
@@ -110,7 +97,13 @@
             this.pieCharts2.dispose()
         },
         name: 'home',
-        components: {IllegalOperation, ConsumptionDynamics, HospitalTop10, CZ_Map, TranUserCharts, TranSumCharts},
+        components: {
+            IllegalOperation,
+            ConsumptionDynamics, HospitalTop10,
+            CZ_Map, TranUserCharts,
+            TranSumCharts,
+            common_Title,
+        },
         data() {
             return {
                 nowTime: '',
@@ -119,6 +112,7 @@
                 pieCharts2: null,
                 dealNum: 20,
                 dealSum: 67,
+                isHome: true,
             }
         },
         methods: {
@@ -152,42 +146,9 @@
             toHos() {
                 this.$router.push('Hospital')
             },
-            //获取当前时间
-            timeFormate(timeStamp) {
-                let year = new Date(timeStamp).getFullYear();
-                let month = new Date(timeStamp).getMonth() + 1 < 10 ? "0" + (new Date(timeStamp).getMonth() + 1) : new Date(timeStamp).getMonth() + 1;
-                let date = new Date(timeStamp).getDate() < 10 ? "0" + new Date(timeStamp).getDate() : new Date(timeStamp).getDate();
-                let hh = new Date(timeStamp).getHours() < 10 ? +new Date(timeStamp).getHours() : new Date(timeStamp).getHours();
-                let mm = new Date(timeStamp).getMinutes() < 10 ? "0" + new Date(timeStamp).getMinutes() : new Date(timeStamp).getMinutes();
-                let dd = new Date(timeStamp).getDay() < 10 ? "0" + new Date(timeStamp).getDay() : new Date(timeStamp).getDay();
-                if (dd == 1) {
-                    this.nowDay = "星期一"
-                } else if (dd == 2) {
-                    this.nowDay = "星期二"
-                } else if (dd == 3) {
-                    this.nowDay = "星期三"
-                } else if (dd == 4) {
-                    this.nowDay = "星期四"
-                } else if (dd == 5) {
-                    this.nowDay = "星期五"
-                } else if (dd == 6) {
-                    this.nowDay = "星期六"
-                } else {
-                    this.nowDay = "星期日"
-                }
-                // this.nowDay = "星期" + dd
-                this.nowDate = year + "年" + month + "月" + date + "日"
-                this.nowTime = +" " + hh + ":" + mm;
-            },
-            // 定时器函数
-            nowTimes() {
-                this.timeFormate(new Date());
-                setInterval(this.nowTimes, 30 * 1000);
-            },
         }
         ,
         created() {
-            this.nowTimes();
             this.numFun(this.dealNum, 2077)
             setTimeout(() => {
                 this.sumChange()
@@ -199,8 +160,6 @@
             this.$nextTick(() => {
                 window.addEventListener('resize', this.handleResize)
             })
-            this.nowTimes();
-            // this.getDealNumByMin();
             //金额变动，初始值--变动值
             this.numFun(this.dealNum, 2077)
         }
@@ -209,42 +168,6 @@
 </script>
 
 <style scoped>
-    .navbar_left {
-        background-image: url("../assets/navbar_left.png");
-        width: 30%;
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-
-    .navbar_title {
-        background-image: url("../assets/navbar_title.png");
-        width: 45%;
-        margin: 0 auto;
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .navbar_right {
-        background-image: url("../assets/navbar_right.png");
-        width: 30%;
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-
-    .switchPage {
-        width: 190px;
-        height: 30px;
-        /*background-color: #dfb83f;*/
-        margin-left: 50%;
-        opacity: .5;
-        transition: all 0.4s;
-    }
-
-    .switchPage:hover {
-        opacity: 1;
-        /*color: #00F3F4;*/
-    }
 
     .dealNum {
         font-family: Din_Self;

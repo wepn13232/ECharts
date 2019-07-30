@@ -113,8 +113,11 @@
         padding: 1px;
         border: none ;
         font-size: 13px;
+        bottom: 19vw;
         height: 1.7vw;
         color: white;
+        animation: tableAnimate 1.5s ease-in-out;
+        animation-fill-mode: forwards;
     }
     #hosTop10 /deep/ .el-table--group:after,/deep/ .el-table--border:after,/deep/ .el-table::before {
         content: '';
@@ -122,6 +125,17 @@
         /*background-color: #EBEEF5;*/
         display: none;
         z-index: 1;
+    }
+
+    /*    表格动画*/
+    @keyframes tableAnimate {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            bottom: 0;
+            opacity: 1;
+        }
     }
 </style>
 
