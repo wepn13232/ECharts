@@ -2,14 +2,21 @@
     <!--    头部大标题组件-->
     <div>
         <!--        标题-->
-        <div class="headerTitle" style="width: 100%;height: 91px;">
-            <div class="navbar_left" style="position: absolute;width: 33%;height: 5vw;">
+        <div class="headerTitle" style="width: 100%;height: 5vw;">
+
+            <div class="navbar_left" :class="{'slideRightAnimate':slideRightFirst}"
+                 style="position: absolute;width: 33%;height: 5vw;">
                 <span class="tc_title"
                       style="line-height: 5vw;font-size: 1.2vw;margin-left: 20px">{{nowTime}}  {{nowDay}}</span>
                 <span style="line-height: 5vw;font-size: 1vw;margin-left: 20px;color: rgba(0,179,255,0.51)">{{nowDate}}</span>
             </div>
-            <div class="navbar_title" style="height: 5vw;position: absolute;width: 40%;margin-left: 30%"></div>
-            <div class="navbar_right" style="height: 5vw;position: absolute;width: 33%;margin-left: 67%">
+
+            <div class="navbar_title" :class="{'slideDownAnimate':slideDownFirst}"
+                 style="height: 5vw;position: absolute;width: 40%;margin-left: 30%"
+            ></div>
+
+            <div class="navbar_right" :class="{'slideLeftAnimate':slideLeftFirst}"
+                 style="height: 5vw;position: absolute;width: 33%;margin-left: 67%">
 
                 <div class="switchPage" style="margin-top: 4%;cursor: pointer" @click="toHos" v-show="isHome">
                     <span class="tc_s" style="float: right;margin-top: 5.5%">切换至药店医院专题</span>
@@ -28,6 +35,10 @@
 
 <script>
     export default {
+        beforeRouteLeave(to, from, next) {
+            this.slideDownFirst = false
+            next()
+        },
         name: "Title",
         data() {
             return {
@@ -35,7 +46,10 @@
                 nowDay: '',
                 nowDate: '',
                 isHome: '',
-                isHos: ''
+                isHos: '',
+                slideDownFirst: false,
+                slideRightFirst: false,
+                slideLeftFirst: false,
             }
         },
         props: ['isHomeIndex', 'isHosIndex'],
@@ -83,6 +97,9 @@
         },
         created() {
             this.nowTimes();
+            this.slideDownFirst = true
+            this.slideRightFirst = true
+            this.slideLeftFirst = true
         },
         mounted() {
             this.nowTimes();
@@ -96,6 +113,7 @@
     .navbar_left {
         background-image: url("../../assets/navbar_left.png");
         width: 30%;
+        left: -40%;
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -103,6 +121,7 @@
     .navbar_title {
         background-image: url("../../assets/navbar_title.png");
         width: 45%;
+        bottom: 7vw;
         margin: 0 auto;
         background-size: 100%;
         background-position: center;
@@ -112,6 +131,7 @@
     .navbar_right {
         background-image: url("../../assets/navbar_right.png");
         width: 30%;
+        right: -40%;
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -129,50 +149,74 @@
         opacity: 1;
         /*color: #00F3F4;*/
     }
+
     .headerTitle {
         position: relative;
         overflow: hidden;
         /*animation: slideDown 1s ease-in-out;*/
     }
 
+    /*动画封装*/
+    /*向下滑入*/
+    .slideDownAnimate {
+        animation: slideDown 1s ease-in-out;
+        animation-fill-mode: forwards;
+    }
 
-    /*!*    动画效果*!*/
-    /*    @keyframes slideDown {*/
-    /*        0%{*/
-    /*            bottom: 91px;*/
-    /*        }*/
+    /*向右滑入*/
+    .slideRightAnimate {
+        animation: slideFromLeft 0.5s ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+    }
 
-    /*        100%{*/
-    /*            bottom: 0;*/
-    /*        }*/
-    /*    }*/
-    /*!*    左滑入*!*/
-    /*    @keyframes slideFromLeft {*/
-    /*        0%{*/
-    /*            left: -40%;*/
-    /*        }*/
-    /*        100%{*/
-    /*            left: 0;*/
-    /*        }*/
-    /*    }*/
-    /*!*    右滑入*!*/
-    /*    @keyframes slideFromRight {*/
-    /*        0%{*/
-    /*            right: -40%;*/
-    /*        }*/
-    /*        100%{*/
-    /*            right: 0;*/
-    /*        }*/
-    /*    }*/
-    /*!*    淡入*!*/
-    /*    @keyframes opacityIn {*/
-    /*        0%{*/
-    /*            opacity: 0;*/
-    /*        }*/
-    /*        100%{*/
-    /*            opacity: 1;*/
-    /*        }*/
-    /*    }*/
+    /*向左滑入*/
+    .slideLeftAnimate {
+        animation: slideFromRight 0.5s ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+    }
+
+
+    /*    动画效果*/
+    @keyframes slideDown {
+        0% {
+            bottom: 7vw;
+        }
+        100% {
+            bottom: 0;
+        }
+    }
+
+    /*    左滑入*/
+    @keyframes slideFromLeft {
+        0% {
+            left: -40%;
+        }
+        100% {
+            left: 0;
+        }
+    }
+
+    /*    右滑入*/
+    @keyframes slideFromRight {
+        0% {
+            right: -40%;
+        }
+        100% {
+            right: 0;
+        }
+    }
+
+    /*    淡入*/
+    @keyframes opacityIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 </style>
 <style>
     @import "../../assets/css/CommonCss.css";
