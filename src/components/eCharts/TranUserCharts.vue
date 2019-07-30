@@ -40,7 +40,7 @@
                 // },
                 grid: {
                     containLabel: true,
-                    top: 25,
+                    top: 30,
                     bottom: 30,
                 },
                 xAxis: [
