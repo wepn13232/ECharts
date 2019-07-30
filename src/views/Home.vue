@@ -45,15 +45,15 @@
                         </div>
                         <div class="dealNum">
                             <span>￥</span>
-                            <span style="font-size: 32px;letter-spacing:4px">{{dealNum}}</span>
+                            <span style="font-size: 40px;letter-spacing:4px">{{dealNum}}</span>
                         </div>
 
                         <div class="titleArrow"
-                             style="width: 16px;height: 12px;margin-left: 35.3%;margin-top: 4vw"></div>
-                        <div style="color: #00F3F4;position: absolute;margin-left: 36.5%;font-size: 14px;z-index: 3;margin-top: 3.8vw">
+                             style="width: 16px;height: 12px;margin-left: 35.3%;margin-top: 4.7vw"></div>
+                        <div style="color: #00F3F4;position: absolute;margin-left: 36.5%;font-size: 14px;z-index: 3;margin-top: 4.5vw">
                             总交易笔数
                         </div>
-                        <div class="dealNum" style="margin-top: 5vw;margin-left: 19.7vw">
+                        <div class="dealNum" style="margin-top: 5.7vw;margin-left: 19.3vw">
                             <span style="font-size: 32px;margin-right: 4px;letter-spacing: 2px">{{dealSum}}</span>
                             <span style="font-size: 14px">笔</span>
                         </div>
@@ -110,7 +110,7 @@
                 nowDay: '',
                 nowDate: '',
                 pieCharts2: null,
-                dealNum: 20,
+                dealNum: 200000,
                 dealSum: 67,
                 isHome: true,
             }
@@ -149,7 +149,7 @@
         }
         ,
         created() {
-            this.numFun(this.dealNum, 2077)
+            this.numFun(this.dealNum, 202500)
             setTimeout(() => {
                 this.sumChange()
             }, 3000)
@@ -161,7 +161,7 @@
                 window.addEventListener('resize', this.handleResize)
             })
             //金额变动，初始值--变动值
-            this.numFun(this.dealNum, 2077)
+            this.numFun(this.dealNum, 202500)
         }
         ,
     }
@@ -174,7 +174,7 @@
         width: 20vw;
         color: white;
         position: absolute;
-        margin-left: 20%;
+        margin-left: 21%;
         font-size: 1vw;
         z-index: 3;
         margin-top: 1vw;
@@ -219,12 +219,12 @@
         }
     }
 
-/*    图表进入动画*/
+    /*    图表进入动画*/
     @keyframes showContanier {
-        0%{
+        0% {
             opacity: 0;
         }
-        100%{
+        100% {
             opacity: 1;
         }
     }

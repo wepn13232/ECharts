@@ -64,6 +64,7 @@
                 ],
                 yAxis: [
                     {
+                        name:'笔',
                         min: '0',
                         splitLine: {
                             show: false
@@ -87,14 +88,14 @@
                         type: 'line',
                         stack: '总量',
                         areaStyle: {},
-                        data: [12, 12, 101, 134, 90, 20, 10, 23, 4, 45, 1, 2],
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'top',
-                                color: '#fff'
-                            }
-                        },
+                        data: [1232, 1412, 1101, 3134, 2390, 4320, 5610, 7623, 2144, 6745, 8761, 8962],
+                        // label: {
+                        //     normal: {
+                        //         show: true,
+                        //         position: 'top',
+                        //         color: '#fff'
+                        //     }
+                        // },
                         itemStyle: {
                             normal: {
                                 color: new this.$echarts.graphic.LinearGradient(

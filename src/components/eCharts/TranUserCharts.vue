@@ -63,6 +63,7 @@
                 ],
                 yAxis: [
                     {
+                        name:'人',
                         min: '0',
                         splitLine: {
                             show: false
@@ -86,14 +87,14 @@
                         type: 'line',
                         stack: '总量',
                         areaStyle: {},
-                        data: [12, 12, 101, 134, 90, 20, 10, 23, 4, 45, 1, 2],
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'top',
-                                color: '#fff'
-                            }
-                        },
+                        data: [121, 122, 3101, 4134, 5590, 6620,7710, 4423, 7534, 2345, 1231, 2222],
+                        // label: {
+                        //     normal: {
+                        //         show: true,
+                        //         position: 'top',
+                        //         color: '#fff'
+                        //     }
+                        // },
                         itemStyle: {
                             normal: {
                                 color: new this.$echarts.graphic.LinearGradient(
