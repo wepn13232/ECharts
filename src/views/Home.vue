@@ -113,6 +113,7 @@
                 dealNum: 200000,
                 dealSum: 67,
                 isHome: true,
+                hackReflash:true
             }
         },
         methods: {

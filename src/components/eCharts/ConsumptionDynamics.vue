@@ -106,6 +106,7 @@
         color: white;
         animation: tableAnimate 1.5s ease-in-out;
         animation-fill-mode: forwards;
+        animation-delay: 2s;
     }
 
     /*    表格动画*/
