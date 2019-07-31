@@ -116,7 +116,7 @@
                 hackReflash: true
             }
         },
-        //过滤器(保留一位小数)
+        //过滤器(千分位加逗号)
         filters: {
             changeNumFormat(value) {
                 if (!value) return ' '
