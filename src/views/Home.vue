@@ -45,7 +45,7 @@
                         </div>
                         <div class="dealNum">
                             <span>￥</span>
-                            <span style="font-size: 40px;letter-spacing:4px">{{dealNum}}</span>
+                            <span style="font-size: 40px;letter-spacing:4px">{{dealNum | changeNumFormat}}</span>
                         </div>
 
                         <div class="titleArrow"
@@ -110,10 +110,19 @@
                 nowDay: '',
                 nowDate: '',
                 pieCharts2: null,
-                dealNum: 200000,
+                dealNum: 200000.22,
                 dealSum: 67,
                 isHome: true,
-                hackReflash:true
+                hackReflash: true
+            }
+        },
+        //过滤器(保留一位小数)
+        filters: {
+            changeNumFormat(value) {
+                if (!value) return ' '
+                var intPart = Number(value).toFixed(0) // 获取整数部分
+                var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') // 将整数部分逢三一断
+                return intPartFormat
             }
         },
         methods: {
@@ -150,7 +159,7 @@
         }
         ,
         created() {
-            this.numFun(this.dealNum, 202500)
+            this.numFun(this.dealNum, 202500.22)
             setTimeout(() => {
                 this.sumChange()
             }, 3000)
@@ -162,7 +171,7 @@
                 window.addEventListener('resize', this.handleResize)
             })
             //金额变动，初始值--变动值
-            this.numFun(this.dealNum, 202500)
+            this.numFun(this.dealNum, 202500.22)
         }
         ,
     }
