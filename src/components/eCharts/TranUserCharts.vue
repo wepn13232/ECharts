@@ -1,5 +1,5 @@
 <template>
-<!--    总交易用户走势-->
+    <!--    总交易用户走势-->
     <div>
         <div class="charts-1" id="tranUserCharts"></div>
     </div>
@@ -19,7 +19,7 @@
         },
         mounted() {
             //封装总用户交易走势
-            const _tranUserCharts={
+            const _tranUserCharts = {
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {
@@ -63,7 +63,7 @@
                 ],
                 yAxis: [
                     {
-                        name:'人',
+                        name: '人',
                         min: '0',
                         splitLine: {
                             show: false
@@ -87,7 +87,7 @@
                         type: 'line',
                         stack: '总量',
                         areaStyle: {},
-                        data: [121, 222, 311, 434, 590, 620,710, 1123, 1534, 2345, 2831, 3222],
+                        data: [121, 222, 311, 434, 590, 620, 710, 1123, 1534, 2345, 2831, 3222],
                         // label: {
                         //     normal: {
                         //         show: true,

@@ -1,7 +1,10 @@
 <template>
     <!--    潮州市地图分布-->
     <div>
-        <div class="addIcon" style="width: 50px;height: 50px;color:white;position: absolute;margin-left: 19vw;margin-top: 19vh;z-index: 3">+1</div>
+        <div class="addIcon"
+             style="width: 50px;height: 50px;color:white;position: absolute;margin-left: 19vw;margin-top: 19vh;z-index: 3">
+            +1
+        </div>
         <div class="charts-map" id="cz_Map">
         </div>
     </div>
@@ -98,7 +101,7 @@
                 pieCharts: null,
             }
         },
-        methods:{
+        methods: {
             handleResize() {
                 this.pieCharts.resize()
             },
@@ -151,7 +154,7 @@
                 },
                 series: [
                     {
-                        name: '正常商户'+'  '+'657家',
+                        name: '正常商户',
                         type: 'scatter',
                         zlevel: 1,
                         data: convertNormalData(shop),
@@ -163,7 +166,7 @@
                         coordinateSystem: 'geo',
                     },
                     {
-                        name: '异常商户'+'   '+'4家',
+                        name: '异常商户',
                         type: 'effectScatter',
                         itemStyle: {
                             normal: {
@@ -197,29 +200,31 @@
         width: 97%;
         margin: 0 auto;
     }
-    .addIcon{
+
+    .addIcon {
         opacity: 0;
         animation: addIconToNum 2s ease-in-out;
         animation-delay: 1s;
         animation-fill-mode: forwards;
     }
+
     /*添加动画*/
     @keyframes addIconToNum {
-        0%{
+        0% {
             opacity: 0;
             margin-top: 19vh;
             margin-left: 19vw;
         }
-        25%{
+        25% {
             margin-top: 19vh;
             margin-left: 19vw;
         }
-        50%{
+        50% {
             margin-top: 19vh;
             margin-left: 19vw;
             opacity: 1;
         }
-        100%{
+        100% {
             opacity: 0;
             margin-top: 0;
             margin-left: 36vw;

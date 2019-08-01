@@ -127,15 +127,17 @@
         width: 100%;
         height: 0 !important;
     }
-    #consumptionTable /deep/ .el-table--group:after,/deep/ .el-table--border:after,/deep/ .el-table::before {
+
+    #consumptionTable /deep/ .el-table--group:after, /deep/ .el-table--border:after, /deep/ .el-table::before {
         content: '';
         position: absolute;
         /*background-color: #EBEEF5;*/
         display: none;
         z-index: 1;
     }
-    #consumptionTable /deep/.el-table:before{
-        border-bottom:  0 solid rgba(204, 204, 204, 0);
+
+    #consumptionTable /deep/ .el-table:before {
+        border-bottom: 0 solid rgba(204, 204, 204, 0);
         height: 0 !important;
     }
 

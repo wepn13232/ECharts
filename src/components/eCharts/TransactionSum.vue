@@ -24,16 +24,16 @@
         },
         mounted() {
             const _transcationSum = {
-                grid:{
-                    top:35,
-                    bottom:30,
+                grid: {
+                    top: 35,
+                    bottom: 30,
                 },
                 legend: {
                     textStyle: {
                         color: '#E6F7FF'
                     },
-                    right:20,
-                    top:10,
+                    right: 20,
+                    top: 10,
                 },
                 tooltip: {},
                 dataset: {
@@ -60,9 +60,9 @@
                     }
                 },
                 yAxis: {
-                    splitLine:{
-                        lineStyle:{
-                            color:'rgba(255,255,255,0.51)'
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.51)'
                         }
                     },
                     axisLine: {
@@ -85,7 +85,8 @@
                         itemStyle: {color: '#00B3FF'},
                         barWidth: '20%'
                     },
-                    {type: 'bar',
+                    {
+                        type: 'bar',
                         itemStyle: {color: '#00FFB3'},
                         barWidth: '20%'
                     }

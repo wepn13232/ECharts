@@ -114,12 +114,12 @@
                 dealSum: 67,
                 isHome: true,
                 hackReflash: true,
-                resetIllegalTransition:true,
-                resetTranUserCharts:true,
-                resetTranSumCharts:true,
-                resetMap:true,
-                resetConsumption:true,
-                resetYearTop10:true,
+                resetIllegalTransition: true,
+                resetTranUserCharts: true,
+                resetTranSumCharts: true,
+                resetMap: true,
+                resetConsumption: true,
+                resetYearTop10: true,
             }
         },
         //过滤器(千分位加逗号)

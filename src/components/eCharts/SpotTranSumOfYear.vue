@@ -23,19 +23,19 @@
                 tooltip: {
                     trigger: 'axis'
                 },
-                color:['#FF8E55','#E632A2','#00F3F4','#4B43FB'],
+                color: ['#FF8E55', '#E632A2', '#00F3F4', '#4B43FB'],
                 legend: {
-                    icon:'roundRect',
+                    icon: 'roundRect',
                     data: ['枫溪区', '湘桥区', '潮安区', '饶平县'],
                     textStyle: {
                         color: '#E6F7FF'
                     },
-                    right:20,
-                    top:10,
+                    right: 20,
+                    top: 10,
                 },
                 grid: {
-                    top:55,
-                    bottom:10,
+                    top: 55,
+                    bottom: 10,
                     containLabel: true
                 },
                 xAxis: {
@@ -77,7 +77,7 @@
                         name: '枫溪区',
                         type: 'line',
                         stack: '总量',
-                        data: [120, 132, 101, 134, 90, 230, 210,123,44,12,44,1,245],
+                        data: [120, 132, 101, 134, 90, 230, 210, 123, 44, 12, 44, 1, 245],
                         lineStyle: {
                             color: '#FF8E55'
                         }
@@ -86,7 +86,7 @@
                         name: '湘桥区',
                         type: 'line',
                         stack: '总量',
-                        data: [220, 182, 191, 234, 290, 330, 310,676,123,563,123,43],
+                        data: [220, 182, 191, 234, 290, 330, 310, 676, 123, 563, 123, 43],
                         lineStyle: {
                             color: '#E632A2'
                         }
@@ -95,7 +95,7 @@
                         name: '潮安区',
                         type: 'line',
                         stack: '总量',
-                        data: [150, 232, 201, 154, 190, 330, 410,23,65,88,123,456],
+                        data: [150, 232, 201, 154, 190, 330, 410, 23, 65, 88, 123, 456],
                         lineStyle: {
                             color: '#00F3F4'
                         }
@@ -104,7 +104,7 @@
                         name: '饶平县',
                         type: 'line',
                         stack: '总量',
-                        data: [320, 332, 301, 334, 390, 330, 320,123,234,456,123,34],
+                        data: [320, 332, 301, 334, 390, 330, 320, 123, 234, 456, 123, 34],
                         lineStyle: {
                             color: '#4B43FB'
                         }

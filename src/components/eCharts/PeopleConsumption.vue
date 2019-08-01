@@ -37,34 +37,34 @@
                     textStyle: {
                         color: 'white',
                     },
-                    right:20,
-                    top:10,
+                    right: 20,
+                    top: 10,
                 },
                 grid: {
                     left: '3%',
-                    top:55,
-                    bottom:10,
+                    top: 55,
+                    bottom: 10,
                     containLabel: true,
                 },
                 xAxis: {
                     type: 'value',
-                    splitLine:{
-                        show:false
+                    splitLine: {
+                        show: false
                     },
                     axisLine: {
                         lineStyle: {
                             color: '#00D4FF',
                         }
                     },
-                    axisLabel:{
-                        textStyle:{
-                            fontSize:12,
-                            color:'#E6F7FF'
+                    axisLabel: {
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#E6F7FF'
                         }
                     }
                 },
                 yAxis: {
-                    name:'岁',
+                    name: '岁',
                     type: 'category',
                     data: ['0-14', '15-35', '36-60', '60以上'],
                     axisLine: {
@@ -72,13 +72,13 @@
                             color: '#00D4FF'
                         }
                     },
-                    splitLine:{
-                        show:false
+                    splitLine: {
+                        show: false
                     },
-                    axisLabel:{
-                        textStyle:{
-                            fontSize:12,
-                            color:'#E6F7FF'
+                    axisLabel: {
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#E6F7FF'
                         }
                     },
                 },

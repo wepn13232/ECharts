@@ -1,11 +1,11 @@
 <template>
     <div>
         <!--        标题-->
-     <common_-title :isHosIndex="isHos"></common_-title>
+        <common_-title :isHosIndex="isHos"></common_-title>
         <br>
 
         <!--        图表-->
-        <div class="form" >
+        <div class="form">
             <el-row type="flex" justify="space-around">
                 <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
                     <span style="line-height: 2.2;font-size: 1vw;" class="tc">今日医院营业额Top10</span>
@@ -36,7 +36,6 @@
                 </el-col>
             </el-row>
         </div>
-
 
 
     </div>
@@ -85,7 +84,7 @@
                 nowTime: '',
                 nowDay: '',
                 nowDate: '',
-                isHos:true,
+                isHos: true,
             }
         },
         mounted() {
@@ -97,7 +96,7 @@
 </script>
 
 <style scoped>
-    .form{
+    .form {
         width: 99%;
         margin: 0 auto;
     }
@@ -113,8 +112,6 @@
     .mid_h {
         height: 24vw;
     }
-
-
 
 
 </style>

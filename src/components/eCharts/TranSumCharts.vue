@@ -1,5 +1,5 @@
 <template>
-<!--    总交易笔数走势-->
+    <!--    总交易笔数走势-->
     <div>
         <div class="charts-1" id="tranSumCharts"></div>
 
@@ -20,7 +20,7 @@
         name: "TranSumCharts",
         mounted() {
             //封装总交易笔数走势
-            const _tranSumCharts={
+            const _tranSumCharts = {
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {
@@ -64,7 +64,7 @@
                 ],
                 yAxis: [
                     {
-                        name:'笔',
+                        name: '笔',
                         min: '0',
                         splitLine: {
                             show: false

@@ -10,11 +10,11 @@ import '../src/assets/css/font.css'
 
 
 import {
-  Row,
-  Col,
-  Tabs,
-  Table,
-  TableColumn
+    Row,
+    Col,
+    Tabs,
+    Table,
+    TableColumn
 } from 'element-ui'
 
 import './plugins/element.js'
@@ -31,7 +31,7 @@ Vue.prototype.$echarts = echarts;
 Vue.prototype.$ajax = axios
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
