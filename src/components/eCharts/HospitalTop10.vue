@@ -7,11 +7,11 @@
                   :row-class-name="tableRowClassName"
                   :default-sort="{prop:'sum',order:'descending'}"
                   style="width: 100%;background-color: rgba(223,184,63,0)">
-            <el-table-column
-                    prop="No"
-                    label="排名"
-                    width="90">
-            </el-table-column>
+           <el-table-column fixed align="center" width="90" label="排名">
+               <template slot-scope="scope">
+                   <span>No.{{scope.$index + 1}}</span>
+               </template>
+           </el-table-column>
             <el-table-column
                     prop="name"
                     label="商户名称"
