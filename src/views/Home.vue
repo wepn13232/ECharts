@@ -11,17 +11,17 @@
                     <!--                1-1-->
                     <div class=" w522 h33 Bg1" style="text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">年度违规交易一览</span>
-                        <illegal-operation style="margin-top: 1%"></illegal-operation>
+                        <illegal-operation v-if="resetIllegalTransition" style="margin-top: 1%"></illegal-operation>
                     </div>
                     <!--                1-2-->
                     <div class=" w522 h33 mt19 Bg1" style="text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">总交易用户走势</span>
-                        <tran-user-charts></tran-user-charts>
+                        <tran-user-charts v-if="resetTranUserCharts"></tran-user-charts>
                     </div>
                     <!--                1-3-->
                     <div class=" w522 h33 mt19 Bg1" style="text-align: center;">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">总交易笔数走势</span>
-                        <tran-sum-charts></tran-sum-charts>
+                        <tran-sum-charts v-if="resetTranSumCharts"></tran-sum-charts>
                     </div>
                 </el-col>
 
@@ -57,7 +57,7 @@
                             <span style="font-size: 32px;margin-right: 4px;letter-spacing: 2px">{{dealSum}}</span>
                             <span style="font-size: 14px">笔</span>
                         </div>
-                        <c-z_-map></c-z_-map>
+                        <c-z_-map v-if="resetMap"></c-z_-map>
                     </div>
                 </el-col>
 
@@ -66,12 +66,12 @@
                     <!--                3-1-->
                     <div class=" Bg1" style="width:100%;height: 32.288%;text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">今日实时交易动态</span>
-                        <consumption-dynamics></consumption-dynamics>
+                        <consumption-dynamics v-if="resetConsumption"></consumption-dynamics>
                     </div>
                     <!--                3-2-->
                     <div class="Bg3 mt19" style="width: 100%;height: 66.2097%;text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易额TOP10</span>
-                        <hospital-top10></hospital-top10>
+                        <hospital-top10 v-if="resetYearTop10"></hospital-top10>
                     </div>
                 </el-col>
 
@@ -113,7 +113,13 @@
                 dealNum: 200000.22,
                 dealSum: 67,
                 isHome: true,
-                hackReflash: true
+                hackReflash: true,
+                resetIllegalTransition:true,
+                resetTranUserCharts:true,
+                resetTranSumCharts:true,
+                resetMap:true,
+                resetConsumption:true,
+                resetYearTop10:true,
             }
         },
         //过滤器(千分位加逗号)
