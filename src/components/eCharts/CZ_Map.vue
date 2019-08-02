@@ -188,7 +188,7 @@
                 },
                 series: [
                     {
-                        name: '正常点' + ' ' + '600',
+                        name: '正常' + ' ' + '600',
                         type: 'scatter',
                         zlevel: 1,
                         data: this.normalShop,
@@ -200,7 +200,7 @@
                         coordinateSystem: 'geo',
                     },
                     {
-                        name: '异常点' + ' ' + '4',
+                        name: '异常' + ' ' + '4',
                         type: 'effectScatter',
                         itemStyle: {
                             normal: {

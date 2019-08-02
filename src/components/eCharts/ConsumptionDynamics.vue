@@ -1,7 +1,6 @@
 <template>
     <!--    今日实时交易动态-->
     <div>
-        <span style="color: white" @click="reflash">刷新</span>
         <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
             <el-table id="consumptionTable" :header-cell-style="{background:'#051642'}"
                       :data="tableData.slice(0,5)"
@@ -109,12 +108,12 @@
         bottom: 10vw;
         height: 2vw;
         color: white;
-        animation-name: tableAnimate, tableLeaveAnimate;
+        animation-name: tableAnimate;
         animation-duration: 1.5s, 1.5s;
         animation-delay: 0s, 10s;
         animation-timing-function: ease-in-out, ease-in-out;
         animation-fill-mode: forwards, forwards;
-        -webkit-animation: tableAnimate, tableLeaveAnimate;
+        -webkit-animation: tableAnimate;
         -webkit-animation-duration: 1.5s, 1.5s;
         -webkit-animation-delay: 0s, 10s;
         -webkit-animation-timing-function: ease-in-out, ease-in-out;
