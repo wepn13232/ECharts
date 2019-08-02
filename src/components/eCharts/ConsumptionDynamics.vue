@@ -5,7 +5,7 @@
                   :data="tableData.slice(0,5)"
                   :row-class-name="tableRowClassName"
                   style="width: 100%;background-color: rgba(223,184,63,0)">
-            <el-table-column fixed align="center" width="60" label="排名">
+            <el-table-column  align="center" width="60" label="排名">
                 <template slot-scope="scope">
                     <span>No.{{scope.$index + 1}}</span>
                 </template>
@@ -114,6 +114,11 @@
         animation-delay: 2s;
     }
 
+    /*#consumptionTable /deep/ .el-table__body tr:hover > td {*/
+    /*    background-color: #2780f4 !important;*/
+    /*}*/
+
+
     /*    表格动画*/
     @keyframes tableAnimate {
         0% {
@@ -146,6 +151,19 @@
         height: 0 !important;
     }
 
+    #consumptionTable /deep/ .el-table__fixed::before, /deep/ .el-table__fixed-right::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0px;
+        /*background-color: #EBEEF5;*/
+        z-index: 4;
+        display: none !important;
+    }
+
+
 </style>
 <style>
     #consumptionTable .el-table .other-row {
@@ -156,6 +174,7 @@
     .el-table .main-row {
         background: rgba(0, 243, 244, 0.11);
     }
+
 
 </style>
 

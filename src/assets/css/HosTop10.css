@@ -26,8 +26,11 @@
 }
 
 
-.el-table--enable-row-hover .el-table__body tr:hover > td {
-    background-color: #2780f4 !important;
+.el-table__body tr:hover > td {
+    background-color: rgba(39, 128, 244, 0.2) !important;
+}
+    .el-table__body tr:hover > td .is-center{
+    background-color: rgba(39, 128, 244, 0.2) !important;
 }
 
 
