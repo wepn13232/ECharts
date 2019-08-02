@@ -28,20 +28,7 @@
         }
         return res;
     };
-    //转换正常商户
-    var convertNormalData = function (data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-            var geoCoord = normalShop[data[i].name];
-            if (geoCoord) {
-                res.push({
-                    name: data[i].name,
-                    value: geoCoord.concat(data[i].value)
-                });
-            }
-        }
-        return res;
-    };
+
     //地图商户数据
     var shop = [
         {name: '商户1'},
@@ -90,6 +77,18 @@
 
     }
 
+    //静态地图数据
+    var mapData = [
+        {
+            name: '地图数据1',
+            value: [116.4472, 23.72159]
+        },
+        {
+            name: '地图数据2',
+            value: [117.11205, 23.648171]
+        }
+    ]
+
     export default {
         beforeDestroy() {
             window.removeEventListener('resize', this.handleResize)
@@ -99,6 +98,12 @@
         data() {
             return {
                 pieCharts: null,
+                normalShop: [
+                    {
+                        name: '地图数据1',
+                        value: [116.4472, 23.72159]
+                    }
+                ]
             }
         },
         methods: {
@@ -118,7 +123,7 @@
                 // },
                 tooltip: {
                     trigger: 'item',
-                    formatter: '{b}<br/>{a}'
+                    formatter: '{b}'
                 },
                 toolbox: {},
                 legend: {
@@ -154,10 +159,10 @@
                 },
                 series: [
                     {
-                        name: '正常商户',
+                        name: '正常点' + ' ' + '600',
                         type: 'scatter',
                         zlevel: 1,
-                        data: convertNormalData(shop),
+                        data: mapData,
                         itemStyle: {
                             normal: {
                                 color: '#00FFB3'
@@ -166,7 +171,7 @@
                         coordinateSystem: 'geo',
                     },
                     {
-                        name: '异常商户',
+                        name: '异常点' + ' ' + '4',
                         type: 'effectScatter',
                         itemStyle: {
                             normal: {

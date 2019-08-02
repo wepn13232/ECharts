@@ -5,11 +5,7 @@
                   :data="tableData.slice(0,5)"
                   :row-class-name="tableRowClassName"
                   style="width: 100%;background-color: rgba(223,184,63,0)">
-            <el-table-column  align="center" width="60" label="排名">
-                <template slot-scope="scope">
-                    <span>No.{{scope.$index + 1}}</span>
-                </template>
-            </el-table-column>
+
             <el-table-column
                     prop="name"
                     label="商户名称"
