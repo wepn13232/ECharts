@@ -77,17 +77,6 @@
 
     }
 
-    //静态地图数据
-    var mapData = [
-        {
-            name: '地图数据1',
-            value: [116.4472, 23.72159]
-        },
-        {
-            name: '地图数据2',
-            value: [117.11205, 23.648171]
-        }
-    ]
 
     export default {
         beforeDestroy() {
@@ -102,6 +91,10 @@
                     {
                         name: '地图数据1',
                         value: [116.4472, 23.72159]
+                    },
+                    {
+                        name: '地图数据2',
+                        value: [117.11205, 23.648171]
                     }
                 ]
             }
@@ -162,7 +155,7 @@
                         name: '正常点' + ' ' + '600',
                         type: 'scatter',
                         zlevel: 1,
-                        data: mapData,
+                        data: this.normalShop,
                         itemStyle: {
                             normal: {
                                 color: '#00FFB3'
