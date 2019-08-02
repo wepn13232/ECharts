@@ -66,7 +66,7 @@
                     <!--                3-1-->
                     <div class=" Bg1" style="width:100%;height: 32.288%;text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">今日实时交易动态</span>
-                        <consumption-dynamics v-if="resetConsumption"></consumption-dynamics>
+                        <consumption-dynamics v-if="resetConsumption" @getReflash="_getReFlash"></consumption-dynamics>
                     </div>
                     <!--                3-2-->
                     <div class="Bg3 mt19" style="width: 100%;height: 66.2097%;text-align: center">
@@ -162,6 +162,14 @@
             toHos() {
                 this.$router.push('Hospital')
             },
+            //刷新表格
+            _getReFlash(msg) {
+                window.console.log(this.resetConsumption)
+                this.resetConsumption = msg
+                setTimeout(() => {
+                    this.resetConsumption = true
+                },100)
+            }
         }
         ,
         created() {
@@ -225,6 +233,16 @@
         z-index: 3;
     }
 
+    .container {
+        width: 99%;
+        margin: 0 auto;
+        opacity: 0;
+        animation: showContanier 0.5s ease-in-out;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+    }
+
+
     /*    动态动画*/
     @keyframes shineTitle {
         0% {
@@ -234,6 +252,7 @@
             opacity: 1;
         }
     }
+
 
     /*    图表进入动画*/
     @keyframes showContanier {
@@ -245,14 +264,8 @@
         }
     }
 
-    .container {
-        width: 99%;
-        margin: 0 auto;
-        opacity: 0;
-        animation: showContanier 0.5s ease-in-out;
-        animation-delay: 1.5s;
-        animation-fill-mode: forwards;
-    }
+
+
 
 </style>
 

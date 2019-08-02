@@ -1,27 +1,29 @@
 <template>
     <!--    今日实时交易动态-->
-    <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
-        <el-table id="consumptionTable" :header-cell-style="{background:'#051642'}"
-                  :data="tableData.slice(0,5)"
-                  :row-class-name="tableRowClassName"
-                  style="width: 100%;background-color: rgba(223,184,63,0)">
-
-            <el-table-column
-                    prop="name"
-                    label="商户名称"
-                    width="200"
-            >
-            </el-table-column>
-            <el-table-column
-                    prop="money"
-                    label="金额"
-                    width="110">
-            </el-table-column>
-            <el-table-column
-                    prop="method"
-                    label="支付方式">
-            </el-table-column>
-        </el-table>
+    <div>
+        <span style="color: white" @click="reflash">刷新</span>
+        <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
+            <el-table id="consumptionTable" :header-cell-style="{background:'#051642'}"
+                      :data="tableData.slice(0,5)"
+                      :row-class-name="tableRowClassName"
+                      style="width: 100%;background-color: rgba(223,184,63,0)">
+                <el-table-column
+                        prop="name"
+                        label="商户名称"
+                        width="200"
+                >
+                </el-table-column>
+                <el-table-column
+                        prop="money"
+                        label="金额"
+                        width="110">
+                </el-table-column>
+                <el-table-column
+                        prop="method"
+                        label="支付方式">
+                </el-table-column>
+            </el-table>
+        </div>
     </div>
 
 </template>
@@ -30,13 +32,9 @@
     export default {
         beforeDestroy() {
             window.removeEventListener('resize', this.handleResize)
-            this.$refs.tableCharts.dispose()
         },
         name: "ConsumptionDynamics",
         methods: {
-            handleResize() {
-                this.$refs.tableCharts.resize()
-            },
             tableRowClassName({rowIndex}) {
                 if (rowIndex === 1 || rowIndex === 3 || rowIndex === 5 || rowIndex === 7 || rowIndex === 9) {
                     return 'other-row';
@@ -44,13 +42,22 @@
                     return 'main-row'
                 }
             },
-            tableShowCollapse() {
-                this.tableShow = !this.tableShow
+            reflash() {
+                window.console.log('进入方法！！！！！')
+                this._tableLeave()
+                setTimeout(() => {
+                    this.$emit('getReflash', false)
+                }, 1500);
             },
+            _tableEnter() {
+                this.isEnter = true
+            },
+            _tableLeave() {
+                this.isLeave = true
+            }
         },
         data() {
             return {
-                tableShow: false,
                 tableData: [
                     {
                         name: '潮州总社区医院',
@@ -85,13 +92,10 @@
 
 
                 ],
+                disTable: false,
             }
         },
         mounted() {
-            window.addEventListener('resize', this.handleResize)
-            setTimeout(() => {
-                this.tableShowCollapse()
-            }, 1000)
         },
     }
 </script>
@@ -105,17 +109,21 @@
         bottom: 10vw;
         height: 2vw;
         color: white;
-        animation: tableAnimate 1.5s ease-in-out;
-        animation-fill-mode: forwards;
-        animation-delay: 2s;
+        animation-name: tableAnimate, tableLeaveAnimate;
+        animation-duration: 1.5s, 1.5s;
+        animation-delay: 0s, 10s;
+        animation-timing-function: ease-in-out, ease-in-out;
+        animation-fill-mode: forwards, forwards;
+        -webkit-animation: tableAnimate, tableLeaveAnimate;
+        -webkit-animation-duration: 1.5s, 1.5s;
+        -webkit-animation-delay: 0s, 10s;
+        -webkit-animation-timing-function: ease-in-out, ease-in-out;
+        -webkit-animation-fill-mode: forwards, forwards;
     }
-
-    /*#consumptionTable /deep/ .el-table__body tr:hover > td {*/
-    /*    background-color: #2780f4 !important;*/
-    /*}*/
 
 
     /*    表格动画*/
+    /*向下加载进入*/
     @keyframes tableAnimate {
         0% {
             opacity: 0;
@@ -126,6 +134,17 @@
         }
     }
 
+    /*表格离开动画*/
+    @keyframes tableLeaveAnimate {
+        0% {
+            opacity: 1;
+            bottom: 0;
+        }
+        100% {
+            opacity: 0;
+            bottom: -10vw;
+        }
+    }
 
     #consumptionTable /deep/ .el-table:before {
         left: 0;
