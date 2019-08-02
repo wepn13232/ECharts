@@ -15,7 +15,7 @@
                     </div>
                     <!--                1-2-->
                     <div class=" w522 h33 mt19 Bg1" style="text-align: center">
-                        <span style="line-height: 2.2;font-size: 1vw" class="tc">总交易用户走势</span>
+                        <span style="line-height: 2.2;font-size: 1vw" class="tc">年交易用户走势</span>
                         <tran-user-charts v-if="resetTranUserCharts"></tran-user-charts>
                     </div>
                     <!--                1-3-->
@@ -53,7 +53,7 @@
                         <div style="color: #00F3F4;position: absolute;margin-left: 36.5%;font-size: 14px;z-index: 3;margin-top: 4.5vw">
                             总交易笔数
                         </div>
-                        <div class="dealNum" style="margin-top: 5.7vw;margin-left: 19.3vw">
+                        <div class="dealNum" style="margin-top: 5.7vw;margin-left: 19.1vw">
                             <span style="font-size: 32px;margin-right: 4px;letter-spacing: 2px">{{dealSum}}</span>
                             <span style="font-size: 14px">笔</span>
                         </div>

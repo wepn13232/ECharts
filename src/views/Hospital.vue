@@ -12,7 +12,7 @@
                     <hop-top10_2></hop-top10_2>
                 </el-col>
                 <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">
-                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">区域8月社保交易金额</span>
+                    <span style="line-height: 2.2;font-size: 1vw;" class="tc">各区域8月社保交易金额</span>
                     <transaction-sum></transaction-sum>
                 </el-col>
                 <el-col :span="7" class=" bgMid mid_h" style="width: 32%;text-align: center">

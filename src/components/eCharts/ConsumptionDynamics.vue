@@ -15,7 +15,7 @@
                 <el-table-column
                         prop="money"
                         label="金额"
-                        width="110">
+                        width="80">
                 </el-table-column>
                 <el-table-column
                         prop="method"
@@ -41,19 +41,6 @@
                     return 'main-row'
                 }
             },
-            reflash() {
-                window.console.log('进入方法！！！！！')
-                this._tableLeave()
-                setTimeout(() => {
-                    this.$emit('getReflash', false)
-                }, 1500);
-            },
-            _tableEnter() {
-                this.isEnter = true
-            },
-            _tableLeave() {
-                this.isLeave = true
-            }
         },
         data() {
             return {

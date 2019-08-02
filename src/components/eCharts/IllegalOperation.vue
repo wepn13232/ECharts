@@ -83,11 +83,37 @@
                 ],
                 series: [
                     {
+                        name: '违规商户',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: {},
+                        data: [20, 12, 11, 24, 20, 30, 10, 12, 13, 14, 5, 1],
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'top',
+                                color: '#fff'
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: new this.$echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        {offset: 1, color: 'rgba(75,67,251,0)'},
+                                        {offset: 0.5, color: 'rgba(75,67,251,0.51)'},
+                                        {offset: 0, color: '#4b43fb'}
+                                    ]
+                                )
+                            }
+                        }
+                    },
+                    {
                         name: '违规事件',
                         type: 'line',
                         stack: '总量',
                         areaStyle: {},
-                        data: [12, 12, 101, 134, 90, 20, 10, 23, 4, 45, 1, 2],
+                        data: [12, 12, 101, 134, 90, 20, 10, 23, 4, 45, 15, 22],
                         label: {
                             normal: {
                                 show: true,
@@ -108,32 +134,6 @@
                             }
                         },
                     },
-                    {
-                        name: '违规商户',
-                        type: 'line',
-                        stack: '总量',
-                        areaStyle: {},
-                        data: [20, 12, 11, 24, 20, 30, 10, 12, 13, 14, 55, 21],
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'top',
-                                color: '#fff'
-                            }
-                        },
-                        itemStyle: {
-                            normal: {
-                                color: new this.$echarts.graphic.LinearGradient(
-                                    0, 0, 0, 1,
-                                    [
-                                        {offset: 1, color: 'rgba(75,67,251,0)'},
-                                        {offset: 0.5, color: 'rgba(75,67,251,0.51)'},
-                                        {offset: 0, color: '#4b43fb'}
-                                    ]
-                                )
-                            }
-                        }
-                    }
                 ]
             }
             this.$nextTick(() => {
