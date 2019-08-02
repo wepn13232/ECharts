@@ -102,7 +102,7 @@
     @import "../../assets/css/HosTop10.css";
 
     #consumptionTable /deep/ .el-table__body tr, /deep/ .el-table__body td {
-        padding: 1px;
+        padding: 0px;
         border: none;
         font-size: 13px;
         bottom: 10vw;
