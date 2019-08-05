@@ -20,7 +20,7 @@
                     </div>
                     <!--                1-3-->
                     <div class=" w522 h33 mt19 Bg1" style="text-align: center;">
-                        <span style="line-height: 2.2;font-size: 1vw" class="tc">总交易笔数走势</span>
+                        <span style="line-height: 2.2;font-size: 1vw" class="tc">年交易笔数走势</span>
                         <tran-sum-charts v-if="resetTranSumCharts"></tran-sum-charts>
                     </div>
                 </el-col>
@@ -69,7 +69,7 @@
                         <consumption-dynamics v-if="resetConsumption" @getReflash="_getReFlash"></consumption-dynamics>
                     </div>
                     <!--                3-2-->
-                    <div class="Bg4 mt19" style="width: 100%;height: 49%;text-align: center;margin-top: 2.9vh">
+                    <div class="Bg4 mt19" style="width: 100%;height: 49%;text-align: center;margin-top: 2vh">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易额TOP10</span>
                         <hospital-top10 v-if="resetYearTop10"></hospital-top10>
                     </div>
