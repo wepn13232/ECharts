@@ -1,28 +1,31 @@
 <template>
     <!--    年度交易额TOP10-->
-    <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;text-align: center" ref="tableCharts">
-        <!--        <span style="color: #FEFF63;font-size: 1vw">今日交易总额：50000元</span>-->
-        <el-table id="hosTop10" :header-cell-style="{background:'#051642'}"
-                  :data="tableData.slice(0,10)"
-                  :row-class-name="tableRowClassName"
-                  :default-sort="{prop:'sum',order:'descending'}"
-                  style="width: 100%;background-color: rgba(223,184,63,0)">
-           <el-table-column align="center" width="60" label="排名">
-               <template slot-scope="scope">
-                   <span>No.{{scope.$index + 1}}</span>
-               </template>
-           </el-table-column>
-            <el-table-column
-                    prop="name"
-                    label="商户名称"
-                    width="220">
-            </el-table-column>
-            <el-table-column
-                    prop="sum"
-                    sortable
-                    label="金额">
-            </el-table-column>
-        </el-table>
+    <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 2vh auto;text-align: center" ref="tableCharts">
+        <el-carousel :interval="5000" arrow="never" height="21vw">
+            <el-carousel-item v-for="item in 2" :key="item">
+                <el-table id="hosTop10" :header-cell-style="{background:'#051642'}"
+                          :data="tableData.slice(0,5)"
+                          :row-class-name="tableRowClassName"
+                          :default-sort="{prop:'sum',order:'descending'}"
+                          style="width: 100%;background-color: rgba(223,184,63,0)">
+                    <el-table-column align="center" width="60" label="排名">
+                        <template slot-scope="scope">
+                            <span>No.{{scope.$index + 1}}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                            prop="name"
+                            label="商户名称"
+                            width="210">
+                    </el-table-column>
+                    <el-table-column
+                            prop="sum"
+                            sortable
+                            label="金额">
+                    </el-table-column>
+                </el-table>
+            </el-carousel-item>
+        </el-carousel>
     </div>
 </template>
 
@@ -111,12 +114,12 @@
     @import "../../assets/css/HosTop10.css";
 
     #hosTop10 /deep/ .el-table__body tr, /deep/ .el-table__body td {
-        padding: 1px;
+        padding: 2px;
         border: none;
         bottom: 35vw;
-        height: 2.5vw;
-        color: white;
-        font-size: 13px;
+        height: 3.3vw;
+        color: #E6F7FF;
+        font-size: 14px;
         animation: tableAnimate 1.5s ease-in-out;
         animation-fill-mode: forwards;
     }
@@ -129,6 +132,17 @@
         100% {
             bottom: 0;
             opacity: 1;
+        }
+    }
+    /*表格离开动画*/
+    @keyframes tableLeaveAnimate {
+        0% {
+            opacity: 1;
+            bottom: 0;
+        }
+        100% {
+            opacity: 0;
+            bottom: -10vw;
         }
     }
 
@@ -150,6 +164,12 @@
         /*background-color: #EBEEF5;*/
         z-index: 4;
         display: none !important;
+    }
+</style>
+
+<style>
+    .el-carousel__button{
+        background-color: #00F3F4 !important;
     }
 </style>
 

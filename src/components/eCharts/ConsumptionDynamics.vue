@@ -1,7 +1,12 @@
 <template>
     <!--    今日实时交易动态-->
     <div>
-        <div class="charts-1" id="eCharts-5" style="width: 90%;margin: 0 auto;" ref="tableCharts">
+        <!--        显示今日交易金额-->
+        <div style="margin-top: 2vh;margin-bottom: 2vh">
+            <span style="color: #FEFF63;font-size: 14px">今日交易总额:505693.50</span>
+            <span style="color: #FEFF63;font-size: 14px;margin-left: 30px">今日交易笔数:68</span>
+        </div>
+        <div class="charts-1" id="eCharts-5" style="width: 95%;margin: 0 auto;" ref="tableCharts">
             <el-table id="consumptionTable" :header-cell-style="{background:'#051642'}"
                       :data="tableData.slice(0,5)"
                       :row-class-name="tableRowClassName"
@@ -88,13 +93,14 @@
 <style scoped>
     @import "../../assets/css/HosTop10.css";
 
+    /*该动画除有自动滑入滑出，配合刷新使用*/
     #consumptionTable /deep/ .el-table__body tr, /deep/ .el-table__body td {
-        padding: 0px;
+        padding: 2px;
         border: none;
-        font-size: 13px;
+        font-size: 14px;
         bottom: 10vw;
-        height: 2vw;
-        color: white;
+        height: 3vw;
+        color: #E6F7FF;
         animation-name: tableAnimate;
         animation-duration: 1.5s, 1.5s;
         animation-delay: 0s, 10s;

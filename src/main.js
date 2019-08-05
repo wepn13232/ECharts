@@ -14,7 +14,9 @@ import {
     Col,
     Tabs,
     Table,
-    TableColumn
+    TableColumn,
+    Carousel,
+    CarouselItem,
 } from 'element-ui'
 
 import './plugins/element.js'
@@ -27,6 +29,8 @@ Vue.use(CollapseTransition);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(echarts);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$ajax = axios
 
@@ -35,3 +39,16 @@ new Vue({
     store,
     render: h => h(App)
 }).$mount('#app')
+
+/***
+ *
+ *   █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+ * ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+ * ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+ * ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+ * ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+ *  ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+ *  ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+ *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+ *           ░     ░ ░      ░  ░
+ */

@@ -54,7 +54,7 @@
                             总交易笔数
                         </div>
                         <div class="dealNum" style="margin-top: 5.7vw;margin-left: 19.1vw">
-                            <span style="font-size: 32px;margin-right: 4px;letter-spacing: 2px">{{dealSum}}</span>
+                            <span style="font-size: 40px;margin-right: 4px;letter-spacing: 2px">{{dealSum}}</span>
                             <span style="font-size: 14px">笔</span>
                         </div>
                         <c-z_-map v-if="resetMap"></c-z_-map>
@@ -64,12 +64,12 @@
                 <!--            第三列-->
                 <el-col :span="6" class="h942" style="width: 28%">
                     <!--                3-1-->
-                    <div class=" Bg1" style="width:100%;height: 32.288%;text-align: center">
+                    <div class="Bg4" style="width:100%;height: 49%;text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">今日实时交易动态</span>
                         <consumption-dynamics v-if="resetConsumption" @getReflash="_getReFlash"></consumption-dynamics>
                     </div>
                     <!--                3-2-->
-                    <div class="Bg3 mt19" style="width: 100%;height: 66.2097%;text-align: center">
+                    <div class="Bg4 mt19" style="width: 100%;height: 49%;text-align: center">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易额TOP10</span>
                         <hospital-top10 v-if="resetYearTop10"></hospital-top10>
                     </div>
