@@ -168,7 +168,7 @@
                 this.resetConsumption = msg
                 setTimeout(() => {
                     this.resetConsumption = true
-                },100)
+                }, 100)
             }
         }
         ,
@@ -263,8 +263,6 @@
             opacity: 1;
         }
     }
-
-
 
 
 </style>

@@ -134,6 +134,7 @@
             opacity: 1;
         }
     }
+
     /*表格离开动画*/
     @keyframes tableLeaveAnimate {
         0% {
@@ -154,7 +155,7 @@
         z-index: 1;
     }
 
-    #hosTop10/deep/.el-table__fixed::before,/deep/.el-table__fixed-right::before{
+    #hosTop10 /deep/ .el-table__fixed::before, /deep/ .el-table__fixed-right::before {
         content: '';
         position: absolute;
         left: 0;
@@ -168,7 +169,7 @@
 </style>
 
 <style>
-    .el-carousel__button{
+    .el-carousel__button {
         background-color: #00F3F4 !important;
     }
 </style>
