@@ -69,7 +69,7 @@
                         <consumption-dynamics v-if="resetConsumption" @getReflash="_getReFlash"></consumption-dynamics>
                     </div>
                     <!--                3-2-->
-                    <div class="Bg4 mt19" style="width: 100%;height: 49%;text-align: center">
+                    <div class="Bg4 mt19" style="width: 100%;height: 49%;text-align: center;margin-top: 2.9vh">
                         <span style="line-height: 2.2;font-size: 1vw" class="tc">年度交易额TOP10</span>
                         <hospital-top10 v-if="resetYearTop10"></hospital-top10>
                     </div>
