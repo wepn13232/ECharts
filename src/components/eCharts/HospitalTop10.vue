@@ -129,7 +129,7 @@
 
 <style scoped>
     @import "../../assets/css/HosTop10.css";
-
+    
     #hosTop10 /deep/ .el-table__body tr, /deep/ .el-table__body td {
         padding: 2px;
         border: none;
@@ -140,7 +140,7 @@
         animation: tableAnimate 1.5s ease-in-out;
         animation-fill-mode: forwards;
     }
-
+    
     #hosTop10 /deep/ .el-table--group:after, /deep/ .el-table--border:after, /deep/ .el-table::before {
         content: '';
         position: absolute;
@@ -148,7 +148,7 @@
         display: none;
         z-index: 1;
     }
-
+    
     #hosTop10 /deep/ .el-table__fixed::before, /deep/ .el-table__fixed-right::before {
         content: '';
         position: absolute;
@@ -160,7 +160,7 @@
         z-index: 4;
         display: none !important;
     }
-
+    
     /*------------------------------第二轮播表格-------------------------------*/
     #hosTop10-2 /deep/ .el-table__body tr, /deep/ .el-table__body td {
         padding: 2px;
@@ -172,7 +172,7 @@
         animation: tableAnimate 1.5s ease-in-out;
         animation-fill-mode: forwards;
     }
-
+    
     #hosTop10-2 /deep/ .el-table--group:after, /deep/ .el-table--border:after, /deep/ .el-table::before {
         content: '';
         position: absolute;
@@ -180,7 +180,7 @@
         display: none;
         z-index: 1;
     }
-
+    
     #hosTop10-2 /deep/ .el-table__fixed::before, /deep/ .el-table__fixed-right::before {
         content: '';
         position: absolute;
@@ -192,7 +192,7 @@
         z-index: 4;
         display: none !important;
     }
-
+    
     /*    表格动画*/
     @keyframes tableAnimate {
         0% {
@@ -203,8 +203,8 @@
             opacity: 1;
         }
     }
-
-
+    
+    
     /*表格离开动画*/
     @keyframes tableLeaveAnimate {
         0% {
